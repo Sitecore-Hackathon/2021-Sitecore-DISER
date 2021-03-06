@@ -84,15 +84,6 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
                 }
             }
 
-            if (type == "Summary" || string.IsNullOrEmpty(type))
-            {
-                csv.AppendLine("Total Items Created,Total Items Updated,Total Items Archived");
-                if (reportDatamodel == null) return csv;
-
-                csv.AppendLine(string.Format("{0},{1},{2}", reportDatamodel.CreatedPages, reportDatamodel.UpdatedPages, reportDatamodel.ArchivedPages));
-
-            }
-
             return csv;
         }
     }
