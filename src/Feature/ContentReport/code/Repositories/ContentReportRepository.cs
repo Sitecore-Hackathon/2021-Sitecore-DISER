@@ -26,18 +26,10 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
 
         public ReportContentModel GetContentReport()
         {
-            var datasourceId = RenderingContext.Current.Rendering.DataSource;
-            var item = ItemExtensions.GetItemById(datasourceId);
-            
-            if (item == null)
-                return null;
-
-            var model = new ReportContentModel
+           var model = new ReportContentModel
             {
                 SearchText = "Generate Report",
                 SearchLink = "", // Url of API    
-                StartDateLabel = item["Start Date Label"],
-                EndDateLabel = item["End Date Label"],               
                 Tabs = GetTabs()
             };
             return model;

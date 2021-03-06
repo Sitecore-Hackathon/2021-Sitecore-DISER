@@ -46,4 +46,25 @@
             }
         });
     }
+
+    generateReport = function (e) {
+        var params = {
+            "StartDate": $('fromdate').val(),
+            "EndDate": $('todate').val()
+        };
+        getReport(params)
+    };
+
+    getReport = function (params) {
+        return $.ajax({
+            url: "/ReportApi/GetReport",
+            type: 'Post',
+            data: params,
+            success: function (results) {
+                $(results).each(function (index, result) {
+                    console.log(result);
+                });
+            }
+        });
+    }
 });
