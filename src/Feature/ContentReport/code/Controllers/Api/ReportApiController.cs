@@ -20,6 +20,12 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         [System.Web.Http.HttpPost]
         public IHttpActionResult GetReport(ReportModel request)
         {
+            if (!request.IsValid())
+            {
+                string error = JsonConvert.SerializeObject(request.ErrorMessage, Formatting.Indented);
+                return Json(error);
+            }
+
             var result = new ContentReportRepository().GetResults(request);
             return Json(result);
         }

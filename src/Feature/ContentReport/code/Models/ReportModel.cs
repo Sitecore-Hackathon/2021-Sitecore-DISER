@@ -17,5 +17,32 @@ namespace SitecoreDiser.Feature.ContentReport.Models
         public int NoOfItems { get; set; }
         public ReportDataModel ReportData { get; set; }
         public ReportContentModel ReportContent { get; set; }
+        public List<string> ErrorMessage { get; set; }
+
+        public bool IsValid()
+        {
+            var status = true;
+            ErrorMessage = new List<string>();
+
+            if (StartDateTime == null)
+            {
+                ErrorMessage.Add("From date cannot be empty");
+                status = false;
+            }
+
+            if (EndDateTime == null)
+            {
+                ErrorMessage.Add("To date cannot be empty");
+                status = false;
+            }
+            if (StartDateTime > EndDateTime)
+            {
+                ErrorMessage.Add("From date cannot be greater than To date");
+                status = false;
+            }
+
+            return status;
+
+        }
     }
 }
