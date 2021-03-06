@@ -13,6 +13,7 @@
 }
 
 .cr-nav-bar {
+    margin-top: 15px;
     padding: 15px 10px;
     background: #fff;
     border: none;
@@ -23,10 +24,24 @@
 }
 
     .cr-nav-bar label {
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 600;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #333333;
     }
 
 .bg-light {
     background-color: #f2f3f4 !important;
+}
+
+.cr-container {
+    border: 2px solid #f2f3f4;
+}
+
+.cr-tab {
+    min-height: 300px;
+    border: 2px solid #f2f3f4;
+    margin-bottom: 15px;
 }
