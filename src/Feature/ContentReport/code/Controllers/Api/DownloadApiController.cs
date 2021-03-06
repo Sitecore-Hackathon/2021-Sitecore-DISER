@@ -50,7 +50,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
                 if (tabItemModel == null || tabItemModel.ArchivedItems == null || tabItemModel.ArchivedItems.Count <= 0) return csv;
                 foreach (var result in tabItemModel.ArchivedItems)
                 {
-                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.ItemName, result.UpdatedBy, result.UpdatedDate, result.FullPath));
+                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4}", result.ItemId, result.ItemName, result.UpdatedBy, result.UpdatedDate, result.FullPath));
                 }
             }
             if (type == "CreatedItems")

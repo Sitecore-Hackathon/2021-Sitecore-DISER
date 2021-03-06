@@ -22,7 +22,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
 
                 var homePath = ItemExtensions.GetItemPathById(Settings.GetSetting("HomeItemId"));
 
-                var approvedItems = updatedItems.Where(x => (x.FullPath.StartsWith(homePath, StringComparison.OrdinalIgnoreCase))
+                var approvedItems = updatedItems?.Where(x => (x.FullPath.StartsWith(homePath, StringComparison.OrdinalIgnoreCase))
                                                         && x.WorkflowState == Settings.GetSetting("WorkflowItemId")).ToList();
 
                 if (reportModel.Type == "CreatedItems" || reportModel.Type == "Summary" || string.IsNullOrEmpty(reportModel.Type))
