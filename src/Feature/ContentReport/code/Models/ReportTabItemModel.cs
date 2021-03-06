@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sitecore.Data.Archiving;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,14 @@ namespace SitecoreDiser.Feature.ContentReport.Models
 
         public string Type { get; set; }
 
-        public List<ResultModel> Results { get; set; }
+        public List<ReportSearchResultItemModel> Results { get; set; }
+
+        public List<ArchiveEntry> ArchivedItems { get; set; }
 
         public int NoOfResults { get; set; }
 
+        public int CreatedPages { get; set; }
+        public int UpdatedPages { get; set; }
+        public int ArchivedPages { get; set; }
     }
 }
