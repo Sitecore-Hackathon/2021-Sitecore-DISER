@@ -7,6 +7,6 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
     {
         ContentReportModel GetContentReport();
 
-        List<ResultModel> GetResults(RequestModel request);
+        ReportTabItemModel GetResults(RequestModel request);
     }
 }

@@ -1,12 +1,20 @@
-﻿using SitecoreDiser.Feature.ContentReport.Models;
+﻿using SitecoreDiser.Feature.ContentReport.Helper;
+using SitecoreDiser.Feature.ContentReport.Models;
+using SitecoreDiser.Feature.ContentReport.Service;
 using SitecoreDiser.Foundation.DependencyInjection;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace SitecoreDiser.Feature.ContentReport.Repositories
 {
     [Service(typeof(IContentReportRepository))]
     public class ContentReportRepository : IContentReportRepository
     {
+        private readonly SearchService<ReportSearchResultItemModel> _searchService;
+        public ContentReportRepository()
+        {
+            _searchService = DependencyResolver.Current.GetService<SearchService<ReportSearchResultItemModel>>();
+        }
         /// <summary>
         /// Get Content Report model for View
         /// </summary>
@@ -22,9 +30,12 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
             return model;
         }
 
-        public List<ResultModel> GetResults(RequestModel request)
+        public ReportTabItemModel GetResults(RequestModel request)
         {
-            return null;
+            var reportSearchResultModel = new ReportSearchResultItemModel();
+            var updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value));
+            return ReportHelper.GetReport(updatedItems, request);
+            //return resultData;
         }
 
         /// <summary>

@@ -12,9 +12,9 @@ using Sitecore.ContentSearch.SearchTypes;
 namespace SitecoreDiser.Feature.ContentReport.Service
 {
     [Service]
-    public class SearchService<T, TResult> where T : SearchResultItem
+    public class SearchService<T> where T : SearchResultItem
     {
-        public List<T> GetResults(Expression<Func<T, bool>> predicates = null, string index = null)
+        public List<T> GetResults(Expression<Func<T, bool>> predicates = null, string index = null, int page = -1)
         {
             List<T> results = new List<T>();
             try
@@ -47,7 +47,7 @@ namespace SitecoreDiser.Feature.ContentReport.Service
                     //Getting results from the index
                     SearchResults<T> querySearchHits;
 
-                    querySearchHits = baseQuery.GetResults();
+                    querySearchHits = page == -1 ? baseQuery.GetResults() : baseQuery.Page(page - 1, (int)10).GetResults();
 
                     results = querySearchHits.Select(e => e.Document).ToList();
                 }
