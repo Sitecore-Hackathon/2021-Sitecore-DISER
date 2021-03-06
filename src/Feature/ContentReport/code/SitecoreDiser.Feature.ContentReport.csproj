@@ -462,8 +462,8 @@
     <Content Include="Content\Scripts\ContentReport.js" />
     <Content Include="App_Config\Include\Feature\ContentReport\Search.Setting.config" />
     <Content Include="Content\Scripts\filesaver.js" />
-    <Content Include="Views\ContentReport\ContentReport.cshtml" />
     <None Include="Properties\PublishProfiles\ContentReport.pubxml" />
+    <Content Include="Views\ContentReport\ContentReport.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
