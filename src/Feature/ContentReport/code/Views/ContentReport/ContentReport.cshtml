@@ -33,7 +33,7 @@
                     {
                         int index = Model.Tabs.IndexOf(tab);
                         <li class="@(index == 0 ? "active" : "")">
-                            <a href="#tab-@tab.Name.Replace(" ", "")" data-toggle="tab">@tab.Name</a>
+                            <a href="#tab-@tab.Name.Replace(" ", "")" data-toggle="tab" onclick="generateTabReport(this, '@tab.Type');">@tab.Name</a>
                         </li>
                     }
                 }
@@ -84,9 +84,10 @@
                                     </thread>
                                 </table>
 
+
                                 if (!string.IsNullOrEmpty(Model.Tabs[i].DownloadText) && Model.Tabs[i].Type != "Summary")
                                 {
-                                    <button id="btn-@Model.Tabs[i].Name" title="@Model.Tabs[i].DownloadText" class="btn btn-success" onclick="processDownload(this, '@Model.Tabs[i].Name')">@Model.Tabs[i].DownloadText</button>
+                                    <button id="btn-@Model.Tabs[i].Name" title="@Model.Tabs[i].DownloadText" class="btn btn-success" onclick="processDownload(this, '@Model.Tabs[i].Type')">@Model.Tabs[i].DownloadText</button>
                                 }
                             }
 

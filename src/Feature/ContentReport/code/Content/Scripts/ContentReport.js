@@ -70,6 +70,29 @@
         }
     };
 
+    generateTabReport = function (e, type) {
+        $('#error-message').empty();
+
+        if (!$('#fromdate').val() || !$('#todate').val()) {
+            $('#error-message').append("Please provide a date range");
+            return;
+        }
+
+        var startDate = new Date($('#fromdate').val());
+        var endDate = new Date($('#todate').val());
+        if (startDate <= endDate) {
+            var params = {
+                "StartDate": $('#fromdate').val(),
+                "EndDate": $('#todate').val(),
+                "Type": type
+            };
+            getReport(params);
+        }
+        else {
+            $('#error-message').append("Start date cannot be greater than End date");
+        }
+    };
+
     getReport = function (params) {
         return $.ajax({
             url: "/ReportApi/GetReport",

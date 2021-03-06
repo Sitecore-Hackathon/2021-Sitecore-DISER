@@ -473,6 +473,7 @@
     <Compile Include="Controllers\ContentReportController.cs" />
     <Compile Include="Helper\IndexHelper.cs" />
     <Compile Include="Helper\ReportHelper.cs" />
+    <Compile Include="Models\ArchiveResultItem.cs" />
     <Compile Include="Models\ReportContentModel.cs" />
     <Compile Include="Models\ReportSearchResultItemModel.cs" />
     <Compile Include="Models\ReportDataModel.cs" />

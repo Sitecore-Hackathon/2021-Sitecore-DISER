@@ -19,7 +19,7 @@ namespace SitecoreDiser.Feature.ContentReport.Models
         public List<ReportSearchResultItemModel> CreatedResults { get; set; }
         public List<ReportSearchResultItemModel> UpdatedResults { get; set; }
 
-        public List<ReportSearchResultItemModel> ArchivedItems { get; set; }
+        public List<ArchiveResultItem> ArchivedItems { get; set; }
 
         public int NoOfResults { get; set; }
 
