@@ -1,12 +1,11 @@
 ﻿namespace SitecoreDiser.Feature.ContentReport
 {
     public class Constants
-    {       
-        public const string HomeGuid = "{110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}";
+    {      
+       
         public const string Database = "master";
         public const string Archive = "archive";
-        public const string WorkflowApprovedStateId = "c91bf37ab8224e4f9e26dbd67908e014";
-
+       
         public struct Fields
         {
 
