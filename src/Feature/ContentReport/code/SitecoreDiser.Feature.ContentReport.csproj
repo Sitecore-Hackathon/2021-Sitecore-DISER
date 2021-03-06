@@ -457,10 +457,12 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Controllers\DownloadApiController.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\ContentReportController.cs" />
     <Compile Include="Models\ContentReportModel.cs" />
     <Compile Include="Models\ReportTabItemModel.cs" />
+    <Compile Include="Models\RequestModel.cs" />
     <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ContentReportRepository.cs" />
