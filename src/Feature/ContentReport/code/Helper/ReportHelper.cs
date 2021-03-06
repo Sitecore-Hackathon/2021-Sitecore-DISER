@@ -35,7 +35,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
                     reportDataModel.UpdatedResults = GetPageItems(updatedApprovedItems, false, reportDataModel.CreatedResults);
-                    reportDataModel.UpdatedPages = reportDataModel.CreatedResults.Any() ? reportDataModel.CreatedResults.Count : 0;
+                    reportDataModel.UpdatedPages = reportDataModel.UpdatedResults.Any() ? reportDataModel.UpdatedResults.Count : 0;
                 }
 
                 if (reportModel.Type == "ArchivedItems" || string.IsNullOrEmpty(reportModel.Type))
