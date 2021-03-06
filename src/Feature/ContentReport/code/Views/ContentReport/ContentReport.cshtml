@@ -45,7 +45,14 @@
                         <div class="tab-content">
                             @if (Model.Tabs[i].Name.ToLower().Contains("summary"))
                             {
-
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><label id="item-created-label"></label></td>
+                                            <td><label id="item-created"></label></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             }
                             else
                             {

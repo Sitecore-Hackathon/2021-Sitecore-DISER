@@ -19,7 +19,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         [System.Web.Http.HttpPost]
         public IHttpActionResult GetReport(ReportModel request)
         {
-            var result = new ContentReportRepository().GetContentReport(request);
+            var result = new ContentReportRepository().GetResults(request);
             return Json(result);
         }
     }

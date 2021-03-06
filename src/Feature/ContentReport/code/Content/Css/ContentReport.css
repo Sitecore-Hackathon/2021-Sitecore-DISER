@@ -41,6 +41,7 @@
 }
 
 .cr-tab {
+    padding: 32px;
     min-height: 300px;
     border: 2px solid #f2f3f4;
     margin-bottom: 15px;

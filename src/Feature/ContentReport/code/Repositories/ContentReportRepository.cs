@@ -35,23 +35,8 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
             return model;
         }
 
-        /// <summary>
-        /// Get Report data Post Request
-        /// </summary>
-        /// <returns>Content report model</returns>
-        public ReportModel GetContentReport(ReportModel reportModel)
-        {
-            var model = new ReportModel
-            {
-                ReportContent = reportModel.ReportContent,
-                ReportData = GetResults(reportModel)
-            };
-            return model;
-        }
-
         public ReportDataModel GetResults(ReportModel request)
         {
-            var reportSearchResultModel = new ReportSearchResultItemModel();
             var updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
             return ReportHelper.GetReport(updatedItems, request);
         }

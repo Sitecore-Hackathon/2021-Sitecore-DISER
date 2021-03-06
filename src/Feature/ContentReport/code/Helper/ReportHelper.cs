@@ -17,7 +17,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
         {
             try
             {
-                var reportTabItemModel = new ReportDataModel();
+                var reportDataModel = new ReportDataModel();
 
                 var homePath = ItemExtensions.GetItemPathById(Settings.GetSetting("HomeItemId"));
 
@@ -27,15 +27,15 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                 if (reportModel.Type == "CreatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var createdApprovedItems = approvedItems.Where(x => x.ItemVersion == 1).ToList();
-                    reportTabItemModel.Results = GetPageItems(createdApprovedItems, true);
-                    reportTabItemModel.CreatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
+                    reportDataModel.Results = GetPageItems(createdApprovedItems, true);
+                    reportDataModel.CreatedPages = reportDataModel.Results.Any() ? reportDataModel.Results.Count : 0;
                 }
 
                 if (reportModel.Type == "UpdatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
-                    reportTabItemModel.Results = GetPageItems(updatedApprovedItems, false, reportTabItemModel.Results);
-                    reportTabItemModel.UpdatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
+                    reportDataModel.Results = GetPageItems(updatedApprovedItems, false, reportDataModel.Results);
+                    reportDataModel.UpdatedPages = reportDataModel.Results.Any() ? reportDataModel.Results.Count : 0;
                 }
 
                 if (reportModel.Type == "ArchivedItems" || string.IsNullOrEmpty(reportModel.Type))
@@ -53,10 +53,10 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                                             (entry.OriginalLocation.StartsWith(homePath))
                                         ).ToList();
 
-                    reportTabItemModel.ArchivedItems = archivedItems;
-                    reportTabItemModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
+                    reportDataModel.ArchivedItems = archivedItems;
+                    reportDataModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
                 }
-                return reportTabItemModel;
+                return reportDataModel;
             }
 
             catch (Exception ex)

@@ -49,10 +49,10 @@
 
     generateReport = function (e) {
         var params = {
-            "StartDate": $('fromdate').val(),
-            "EndDate": $('todate').val()
+            "StartDate": $('#fromdate').val(),
+            "EndDate": $('#todate').val()
         };
-        getReport(params)
+        getReport(params);
     };
 
     getReport = function (params) {
@@ -63,6 +63,8 @@
             success: function (results) {
                 $(results).each(function (index, result) {
                     console.log(result);
+                    $('#item-created-label').text("Total Items Created : ");
+                    $('#item-created').text(" " + result.CreatedPages);
                 });
             }
         });
