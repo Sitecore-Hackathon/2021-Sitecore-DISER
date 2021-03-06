@@ -11,7 +11,7 @@
     $('#todate').datepicker(options);
 
     // Tab Data tables initialise
-    $('#dt-tab-' + params.Type).DataTable({        
+    $('#dt-tab-*').DataTable({        
         "paging": true,
         "ordering": true,
         "pagingType": "full_numbers"
