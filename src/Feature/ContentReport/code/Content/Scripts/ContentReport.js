@@ -63,7 +63,7 @@
             success: function (results) {
                 $(results).each(function (index, result) {
                     console.log(result);
-                    $('#summary-label').html("Content Report Details");
+                    $('#summary-label').html("CONTENT REPORT DETAILS");
                     $('#summary-label').addClass("cr-light");
                     $('#item-created-label').text("Total Items Created : ");
                     $('#item-created').text(" " + result.CreatedPages);
