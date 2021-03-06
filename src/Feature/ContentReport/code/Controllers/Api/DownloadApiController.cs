@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SitecoreDiser.Feature.ContentReport.Models;
 using SitecoreDiser.Feature.ContentReport.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Http;

@@ -4,8 +4,6 @@ using SitecoreDiser.Feature.ContentReport.Service;
 using SitecoreDiser.Foundation.DependencyInjection;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Sitecore.Mvc.Presentation;
-using SitecoreDiser.Extensions.Extensions;
 
 namespace SitecoreDiser.Feature.ContentReport.Repositories
 {

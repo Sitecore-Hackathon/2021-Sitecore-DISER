@@ -135,8 +135,7 @@
                 var length = Object.keys(data.CreatedResults).length;
                 for (var i = 0; i < length; i++) {
                     var item = data.CreatedResults[i];
-                    if (item) {
-                        // You could also use an ajax property on the data table initialization
+                    if (item) {                        
                         if ($('#dt-tab-' + type)) {
                             $('#dt-tab-' + type).dataTable().fnAddData([
                                 item.ItemId,
@@ -154,8 +153,7 @@
                 var length = Object.keys(data.UpdatedResults).length;
                 for (var i = 0; i < length; i++) {
                     var item = data.UpdatedResults[i];
-                    if (item) {
-                        // You could also use an ajax property on the data table initialization
+                    if (item) {                        
                         if ($('#dt-tab-' + type)) {
                             $('#dt-tab-' + type).dataTable().fnAddData([
                                 item.ItemId,
@@ -173,8 +171,7 @@
                 var length = Object.keys(data.ArchivedItems).length;
                 for (var i = 0; i < length; i++) {
                     var item = data.ArchivedItems[i];
-                    if (item) {
-                        // You could also use an ajax property on the data table initialization
+                    if (item) {                        
                         if ($('#dt-tab-' + type)) {
                             $('#dt-tab-' + type).dataTable().fnAddData([
                                 item.ItemId,
