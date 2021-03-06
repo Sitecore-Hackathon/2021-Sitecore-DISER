@@ -2,8 +2,8 @@
 
 @if (Model != null)
 {
-    <div class="container cr-container">
-        <div class="cr-nav-bar bg-light">
+    <div class="container cr-bordwr">
+        <div class="cr-nav-bar cr-light">
             <label>Content Report</label>
         </div>
         <div class="c-wrapper center">
@@ -42,13 +42,13 @@
                 @for (int i = 0; i < Model.Tabs.Count; i++)
                 {
                     <div class="tab-pane @(i == 0 ? "active" : "")" id="tab-@Model.Tabs[i].Name.Replace(" ", "")">
-                        <div class="tab-content @(i == 0 ? "center w-80-pr" : "")">
+                        <div class="tab-content @(i == 0 ? "center" : "")">
                             @if (Model.Tabs[i].Name.ToLower().Contains("summary"))
                             {
-                                <table>
+                                <table id="summary-table" class="cr-summary-table">
                                     <tbody>
                                         <tr>
-                                            <td colspan="2"><label id="summary-label" class="cr-summary-label"></label></td>
+                                            <td colspan="2" class="cr-td-ta-ctr"><label id="summary-label" class="cr-summary-label"></label></td>
                                         </tr>
                                         <tr>
                                             <td class="cr-td-lt"><label class="cr-font-22p" id="item-created-label"></label></td>
@@ -61,6 +61,9 @@
                                         <tr>
                                             <td class="cr-td-lt"><label class="cr-font-22p" id="item-archived-label"></label></td>
                                             <td class="cr-td-rt"><label class="cr-font-22p" id="item-archived"></label></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="cr-td-ta-ctr"><label id="detail-label" class="cr-summary-label"></label></td>
                                         </tr>
                                     </tbody>
                                 </table>
