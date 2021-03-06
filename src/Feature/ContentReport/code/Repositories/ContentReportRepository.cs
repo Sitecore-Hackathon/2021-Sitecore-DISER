@@ -22,8 +22,6 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         /// Get Report Content model for View
         /// </summary>
         /// <returns>Content report model</returns>
-
-
         public ReportContentModel GetContentReport()
         {
            var model = new ReportContentModel
@@ -35,6 +33,11 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
             return model;
         }
 
+        /// <summary>
+        /// Method to get report results
+        /// </summary>
+        /// <param name="request">request object</param>
+        /// <returns>Result object</returns>
         public ReportDataModel GetResults(ReportModel request)
         {
             List<ReportSearchResultItemModel> updatedItems = null;

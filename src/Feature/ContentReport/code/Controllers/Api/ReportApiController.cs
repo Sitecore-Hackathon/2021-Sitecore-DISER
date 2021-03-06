@@ -17,6 +17,11 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
 
         }
 
+        /// <summary>
+        /// Api method to get Report based on request
+        /// </summary>
+        /// <param name="request">request object to use for filtering</param>
+        /// <returns>result object</returns>
         [System.Web.Http.HttpPost]
         public IHttpActionResult GetReport(ReportModel request)
         {

@@ -10,6 +10,10 @@ namespace SitecoreDiser.Feature.ContentReport.Pipelines
 {
     public class RegisterWebApiRoutes
     {
+        /// <summary>
+        /// Adding web api routes for custom api's
+        /// </summary>
+        /// <param name="args"></param>
         public void Process(PipelineArgs args)
         {
             RouteTable.Routes.MapHttpRoute("SitecoreDiser.DownloadApi", "downloadapi/{action}/{id}", defaults: new { controller = "DownloadApi", id = RouteParameter.Optional });

@@ -14,6 +14,13 @@ namespace SitecoreDiser.Feature.ContentReport.Service
     [Service]
     public class SearchService<T> where T : SearchResultItem
     {
+        /// <summary>
+        /// Method to process search 
+        /// </summary>
+        /// <param name="predicates">search predicates</param>
+        /// <param name="page"></param>
+        /// <param name="index">index to use, by default it reads for setting file</param>
+        /// <returns>Search results</returns>
         public List<T> GetResults(Expression<Func<T, bool>> predicates = null, int page = -1, string index = null)
         {
             List<T> results = new List<T>();

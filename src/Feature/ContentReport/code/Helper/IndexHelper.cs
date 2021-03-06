@@ -7,7 +7,15 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
 {
     public static class IndexHelper
     {
+
         #region "Report Predicates"
+
+        /// <summary>
+        /// Generates predicates for search
+        /// </summary>
+        /// <param name="fromdate">start date</param>
+        /// <param name="todate">end date</param>
+        /// <returns>Predicates</returns>
         public static Expression<Func<ReportSearchResultItemModel, bool>> UpdatedReportPredicates(DateTime fromdate, DateTime todate)
         {
             var predicates = PredicateBuilder.True<ReportSearchResultItemModel>();

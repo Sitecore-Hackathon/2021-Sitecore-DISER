@@ -13,6 +13,10 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers
             _contentReportRepository = contentReportRepository;
         }
 
+        /// <summary>
+        /// The Controller Rendering action
+        /// </summary>
+        /// <returns>view with model</returns>
         public ActionResult ContentReport()
         {
             return View(_contentReportRepository.GetContentReport());

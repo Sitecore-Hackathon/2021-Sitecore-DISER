@@ -16,6 +16,12 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         {
         }
 
+
+        /// <summary>
+        /// Download the csv file for each type
+        /// </summary>
+        /// <param name="request">request model</param>
+        /// <returns>csv file in http response</returns>
         [HttpPost]
         public IHttpActionResult DownloadReport(ReportModel request)
         {
@@ -41,14 +47,20 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             return null;
         }
 
-        private StringBuilder GenerateCsv(ReportDataModel tabItemModel, string type)
+        /// <summary>
+        /// This method generates CSV file content to be downloaded
+        /// </summary>
+        /// <param name="reportDatamodel">data model with result items</param>
+        /// <param name="type">type of requeest</param>
+        /// <returns>CSV string</returns>
+        private StringBuilder GenerateCsv(ReportDataModel reportDatamodel, string type)
         {
             var csv = new StringBuilder();
             if (type == "ArchivedItems")
             {
                 csv.AppendLine("Archive Item Id,Archive Item Name,Archive By,Archive Date, Original Path");
-                if (tabItemModel == null || tabItemModel.ArchivedItems == null || tabItemModel.ArchivedItems.Count <= 0) return csv;
-                foreach (var result in tabItemModel.ArchivedItems)
+                if (reportDatamodel == null || reportDatamodel.ArchivedItems == null || reportDatamodel.ArchivedItems.Count <= 0) return csv;
+                foreach (var result in reportDatamodel.ArchivedItems)
                 {
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4}", result.ItemId, result.ItemName, result.UpdatedBy, result.UpdatedDate, result.FullPath));
                 }
@@ -56,8 +68,8 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             if (type == "CreatedItems")
             {
                 csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
-                if (tabItemModel == null || tabItemModel.CreatedResults == null || tabItemModel.CreatedResults.Count <= 0) return csv;
-                foreach (var result in tabItemModel.CreatedResults)
+                if (reportDatamodel == null || reportDatamodel.CreatedResults == null || reportDatamodel.CreatedResults.Count <= 0) return csv;
+                foreach (var result in reportDatamodel.CreatedResults)
                 {
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
                 }
@@ -65,8 +77,8 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             if (type == "UpdatedItems")
             {
                 csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
-                if (tabItemModel == null || tabItemModel.UpdatedResults == null || tabItemModel.UpdatedResults.Count <= 0) return csv;
-                foreach (var result in tabItemModel.UpdatedResults)
+                if (reportDatamodel == null || reportDatamodel.UpdatedResults == null || reportDatamodel.UpdatedResults.Count <= 0) return csv;
+                foreach (var result in reportDatamodel.UpdatedResults)
                 {
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
                 }
@@ -75,9 +87,9 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             if (type == "Summary" || string.IsNullOrEmpty(type))
             {
                 csv.AppendLine("Total Items Created,Total Items Updated,Total Items Archived");
-                if (tabItemModel == null) return csv;
+                if (reportDatamodel == null) return csv;
 
-                csv.AppendLine(string.Format("{0},{1},{2}", tabItemModel.CreatedPages, tabItemModel.UpdatedPages, tabItemModel.ArchivedPages));
+                csv.AppendLine(string.Format("{0},{1},{2}", reportDatamodel.CreatedPages, reportDatamodel.UpdatedPages, reportDatamodel.ArchivedPages));
 
             }
 

@@ -14,6 +14,12 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
     {
         private static readonly string _localFolder = "_local";
 
+        /// <summary>
+        /// Helper method to populate report data
+        /// </summary>
+        /// <param name="updatedItems">Items from search results to process</param>
+        /// <param name="reportModel">model to populate the results</param>
+        /// <returns>object with results</returns>
         public static ReportDataModel GetReport(List<ReportSearchResultItemModel> updatedItems, ReportModel reportModel)
         {
             try
@@ -44,7 +50,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                     // get the archive database for the master database
                     var master = Factory.GetDatabase(Constants.Database);
 
-                    Sitecore.Data.Archiving.Archive archive = master.Archives[Constants.Archive];
+                    Archive archive = master.Archives[Constants.Archive];
 
                     //get Archived items
                     var archivedItems = archive.GetEntries(0, int.MaxValue)
@@ -68,6 +74,11 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
             }
         }
 
+        /// <summary>
+        /// Map archive data to Result item
+        /// </summary>
+        /// <param name="archiveItems">Archive items</param>
+        /// <returns>Mapped results</returns>
         private static List<ArchiveResultItem> MapArchiveItemToResult(List<ArchiveEntry> archiveItems)
         {
             var archiveResults = new List<ArchiveResultItem>();
@@ -86,6 +97,13 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
             return archiveResults;
         }
 
+        /// <summary>
+        /// Mathod to retrieve page items if local datasource exists
+        /// </summary>
+        /// <param name="items">items to check for local datasource</param>
+        /// <param name="isCreatedPages">For page creation ignore components. New page is created when version 1 of a page is published, Any update with the components after that will be considered as page update</param>
+        /// <param name="createdPages">List of reslt items</param>
+        /// <returns>updated results items</returns>
         private static List<ReportSearchResultItemModel> GetPageItems(List<ReportSearchResultItemModel> items, bool isCreatedPages = false, List<ReportSearchResultItemModel> createdPages = null)
         {
 
