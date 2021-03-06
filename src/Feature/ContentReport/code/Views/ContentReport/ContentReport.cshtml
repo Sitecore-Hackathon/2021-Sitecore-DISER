@@ -2,20 +2,46 @@
 
 @if (Model != null)
 {
-<div class="wf-container">
-    <div class="wf-content c-wrapper">
-        <div class="row">
-            <input id="fromdate" type="text" data-provide="datepicker" class="form-control">
-            <input id="todate" type="text" data-provide="datepicker" class="form-control">
+    <div class="wf-container">
+        <div class="wf-content c-wrapper">
+            <div class="row">
+                <input id="fromdate" type="text" data-provide="datepicker" class="form-control">
+                <input id="todate" type="text" data-provide="datepicker" class="form-control">
+            </div>
         </div>
-    </div>  
-</div>
-       
+    </div>
+    <button id="search-report" title="@Model.SearchText">@Model.SearchText</button>
 
+    <div id="tabcontainer" class="tab-container">
+        <ul class="nav nav-tabs">
+            @foreach (var tab in Model.Tabs)
+            {
+                <li>
+                    <a href="#tab-@tab.Name" data-toggle="tab">@tab.Name</a>
+                </li>
+            }
+        </ul>
 
-    foreach (var tab in Model.Tabs)
-    {
+        <div class="tab-content ">
+            @foreach (var tab in Model.Tabs)
+            {
+                <div class="tab-pane active" id="tab-@tab.Name">
+                    <table id="dt-tab-@tab.Name" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                        <thread>
+                            <tr>
+                                <th>Id</th>
+                                <th>Path</th>
+                                <th>User</th>
+                            </tr>
+                        </thread>
+                    </table>
+                    <button id="tab-download" title="@tab.DownloadText">@tab.DownloadText</button>
+                </div>
+            }
 
-    }
+        </div>
+    </div>
+
 }
- <button id="download-button" title="Download">Download</button>
+
+<button id="download-button" title="Download">Download</button>
