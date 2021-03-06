@@ -17,7 +17,7 @@
             @foreach (var tab in Model.Tabs)
             {
                 if (!string.IsNullOrWhiteSpace(@tab.Name))
-                { 
+                {
                     <li>
                         <a href="#tab-@tab.Name.Replace(" ", "")" data-toggle="tab">@tab.Name</a>
                     </li>
@@ -49,9 +49,9 @@
                                 </thread>
                             </table>
 
-                            if (!string.IsNullOrEmpty(Model.Tabs[i].DownloadText))
+                            if (!string.IsNullOrEmpty(Model.Tabs[i].DownloadText) && Model.Tabs[i].Type != "Summary")
                             {
-                                <button id="tab-download" title="@Model.Tabs[i].DownloadText">@Model.Tabs[i].DownloadText</button>
+                                <button id="btn-@Model.Tabs[i].Name" title="@Model.Tabs[i].DownloadText" onclick="processDownload(this, '@Model.Tabs[i].Name')">@Model.Tabs[i].DownloadText</button>
                             }
                         }
 
@@ -62,5 +62,3 @@
         </div>
     </div>
 }
-
-<button id="download-button" title="Download">Download</button>

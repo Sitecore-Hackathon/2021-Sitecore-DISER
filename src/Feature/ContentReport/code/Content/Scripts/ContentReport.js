@@ -17,18 +17,16 @@
         "ordering": true,
         "pagingType": "full_numbers"
     });
-    
 
-    $('#download-button').on('click', function (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
+
+    processDownload = function (e, type) {
         var params = {
-            "Type": "CreatedItems"
+            "Type": type
         };
-        processDownload(params)
-    });
+        downloadReport(params)
+    };
 
-    processDownload = function (params) {
+    downloadReport = function (params) {
         return $.ajax({
             url: "/DownloadApi/DownloadReport",
             type: 'Post',
