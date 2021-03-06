@@ -182,8 +182,6 @@ namespace SitecoreDiser.Foundation.DependencyInjection
         {
             try
             {
-                if (assembly.FullName.StartsWith("Sitecore."))
-                    return Type.EmptyTypes;
                 return assembly.GetExportedTypes();
             }
             catch (NotSupportedException)
@@ -204,8 +202,9 @@ namespace SitecoreDiser.Foundation.DependencyInjection
             }
             catch (Exception ex)
             {
+                return Type.EmptyTypes;
                 // Throw a more descriptive message containing the name of the assembly.
-                throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "Unable to load types from assembly {0}. {1}", assembly.FullName, ex.Message), ex);
+                //throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "Unable to load types from assembly {0}. {1}", assembly.FullName, ex.Message), ex);
             }
         }
         

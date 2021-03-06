@@ -457,7 +457,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\Controllers\DownloadApiController.cs" />
+    <Compile Include="Controllers\Api\DownloadApiController.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\ContentReportController.cs" />
     <Compile Include="Helper\IndexHelper.cs" />

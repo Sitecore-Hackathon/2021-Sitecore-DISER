@@ -12,11 +12,9 @@ namespace SitecoreDiser.Foundation.DependencyInjection.Infrastructure
             serviceCollection.AddMvcControllers("*.Feature.*");
             serviceCollection.AddMvcControllers("*.Project.*");
             serviceCollection.AddMvcControllers("*.Foundation.*");
-            serviceCollection.AddMvcControllers("*.Web.*");
            serviceCollection.AddMvcControllers("*.Web");
             serviceCollection.AddClassesWithServiceAttribute("*.Feature.*");
             serviceCollection.AddClassesWithServiceAttribute("*.Foundation.*");
-            serviceCollection.AddClassesWithServiceAttribute("*.Web.*");
             serviceCollection.AddClassesWithServiceAttribute("*.Web");
         }
     }
