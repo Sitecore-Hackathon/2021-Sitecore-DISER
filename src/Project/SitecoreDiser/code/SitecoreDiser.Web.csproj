@@ -518,9 +518,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\web.config" />
-    <Content Include="App_Config\Include\Project\SitecoreDiser.Web\SitecoreDiser.Web.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Publish-SitecoreDiser.pubxml" />
     <None Include="Web.Debug.config">

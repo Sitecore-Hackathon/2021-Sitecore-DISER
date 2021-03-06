@@ -449,7 +449,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Feature\ContentReport\SitecoreDiser.Feature.ContentReport.config" />
     <Content Include="Content\Css\ContentReport.css" />
     <Content Include="Content\Scripts\ContentReport.js" />
     <None Include="Properties\PublishProfiles\Feature ContentReport.pubxml" />
