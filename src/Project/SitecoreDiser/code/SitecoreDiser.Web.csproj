@@ -511,6 +511,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\SitecoreDiser\SitecoreDiserLayout.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -529,6 +530,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="layouts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
