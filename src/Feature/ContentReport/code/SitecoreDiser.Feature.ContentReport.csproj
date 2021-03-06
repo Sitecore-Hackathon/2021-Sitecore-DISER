@@ -466,6 +466,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ContentReportRepository.cs" />
     <Compile Include="Repositories\IContentReportRepository.cs" />
+    <Compile Include="Service\SearchService.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -479,6 +480,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Config\Include\Feature\ContentReport\" />
     <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
