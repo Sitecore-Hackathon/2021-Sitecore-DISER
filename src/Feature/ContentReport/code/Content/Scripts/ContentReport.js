@@ -21,10 +21,14 @@
 
 
     processDownload = function (e, type) {
-        var params = {
-            "Type": type
-        };
-        downloadReport(params)
+        if (validateInput()) {
+            var params = {
+                "StartDate": $('#fromdate').val(),
+                "EndDate": $('#todate').val(),
+                "Type": type
+            };
+            downloadReport(params)
+        }
     };
 
     downloadReport = function (params) {
@@ -49,28 +53,16 @@
     }
 
     generateReport = function (e) {
-        $('#error-message').empty();
-
-        if (!$('#fromdate').val() || !$('#todate').val()) {
-            $('#error-message').append("Please provide a date range");
-            return;
-        }
-
-        var startDate = new Date($('#fromdate').val());
-        var endDate = new Date($('#todate').val());
-        if (startDate <= endDate) {
+        if (validateInput()) {
             var params = {
                 "StartDate": $('#fromdate').val(),
                 "EndDate": $('#todate').val()
             };
             getReport(params);
         }
-        else {
-            $('#error-message').append("Start date cannot be greater than End date");
-        }
     };
 
-    generateTabReport = function (e, type) {
+    validateInput = function () {
         $('#error-message').empty();
 
         if (!$('#fromdate').val() || !$('#todate').val()) {
@@ -81,15 +73,22 @@
         var startDate = new Date($('#fromdate').val());
         var endDate = new Date($('#todate').val());
         if (startDate <= endDate) {
+            return true;
+        }
+        else {
+            $('#error-message').append("Start date cannot be greater than End date");
+            return false;
+        }
+    }
+
+    generateTabReport = function (e, type) {
+        if (validateInput()) {
             var params = {
                 "StartDate": $('#fromdate').val(),
                 "EndDate": $('#todate').val(),
                 "Type": type
             };
             getReport(params);
-        }
-        else {
-            $('#error-message').append("Start date cannot be greater than End date");
         }
     };
 
@@ -100,7 +99,6 @@
             data: params,
             success: function (results) {
                 $(results).each(function (index, result) {
-                    console.log(result);
                     $('#summary-label').html("CONTENT REPORT DETAILS");
                     $('#summary-label').addClass("cr-light");
                     $('#item-created-label').text("Total Items Created : ");
