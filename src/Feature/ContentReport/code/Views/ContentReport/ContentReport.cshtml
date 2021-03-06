@@ -10,13 +10,14 @@
             <div class="row center">
                 <div class="col-md-6">
                     <label class="py-3">Start Date</label>
-                    <input id="fromdate" type="text" data-provide="datepicker">
+                    <input id="fromdate" type="text" data-provide="datepicker" readonly />
                 </div>
                 <div class="col-md-6">
                     <label class="py-3">End Date</label>
-                    <input id="todate" type="text" data-provide="datepicker">
+                    <input id="todate" type="text" data-provide="datepicker" readonly />
                 </div>
-            </div>
+                <div id="error-message" class="row center error-message"></div>
+            </div>            
             <div class="row center w-50-pr">
                 <div class=center w-50-pr">
                     <button id="generate-report" title="@Model.SearchText" class="btn btn-success" onclick="generateReport(this);">@Model.SearchText</button>

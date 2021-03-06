@@ -2,8 +2,9 @@
 
     // Datepicker initialisation
     var options = {
-        format: 'dd/mm/yyyy',
+        format: 'd M yyyy',
         todayHighlight: true,
+        endDate: "0d",
         autoclose: true
     }
     $('#fromdate').datepicker(options);
@@ -48,11 +49,19 @@
     }
 
     generateReport = function (e) {
-        var params = {
-            "StartDate": $('#fromdate').val(),
-            "EndDate": $('#todate').val()
-        };
-        getReport(params);
+        var startDate = new Date($('#fromdate').val());
+        var endDate = new Date($('#todate').val());
+
+        if (startDate <= endDate) {
+            var params = {
+                "StartDate": $('#fromdate').val(),
+                "EndDate": $('#todate').val()
+            };
+            getReport(params);
+        }
+        else {
+            $('#error-message').append("Start date cannot be greater than End date");
+        }
     };
 
     getReport = function (params) {
