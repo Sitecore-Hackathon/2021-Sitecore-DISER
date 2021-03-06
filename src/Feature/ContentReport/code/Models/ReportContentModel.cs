@@ -10,5 +10,8 @@ namespace SitecoreDiser.Feature.ContentReport.Models
         public string SearchText { get; set; }
 
         public string SearchLink { get; set; }
+        
+        public List<ReportTabItemModel> Tabs { get; set; }
+
     }
 }
