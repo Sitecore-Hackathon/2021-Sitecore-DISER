@@ -1,4 +1,5 @@
 ﻿using SitecoreDiser.Feature.ContentReport.Models;
+using SitecoreDiser.Feature.ContentReport.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         [System.Web.Http.HttpPost]
         public IHttpActionResult GetReport(ReportModel request)
         {
-            return null;
+            var result = new ContentReportRepository().GetContentReport(request);
+            return Json(result);
         }
     }
 }
