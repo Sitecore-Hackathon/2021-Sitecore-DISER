@@ -72,15 +72,6 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
                 }
             }
 
-            if (type == "Summary" || string.IsNullOrEmpty(type))
-            {
-                csv.AppendLine("Total Items Created,Total Items Updated,Total Items Archived");
-                if (tabItemModel == null) return csv;
-
-                csv.AppendLine(string.Format("{0},{1},{2}", tabItemModel.CreatedPages, tabItemModel.UpdatedPages, tabItemModel.ArchivedPages));
-
-            }
-
             return csv;
         }
     }
