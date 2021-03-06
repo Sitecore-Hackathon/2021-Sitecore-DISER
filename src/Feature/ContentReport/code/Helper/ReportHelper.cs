@@ -54,8 +54,9 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                                             (entry.OriginalLocation.StartsWith(homePath))
                                         ).ToList();
 
-                    reportDataModel.ArchivedItems = MapArchiveItemToResult(archivedItems);
-                    reportDataModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
+                    var archiveResults = MapArchiveItemToResult(archivedItems);
+                    reportDataModel.ArchivedItems = archiveResults;
+                    reportDataModel.ArchivedPages = archiveResults.Any() ? archiveResults.Count : 0;
                 }
                 return reportDataModel;
             }
@@ -67,17 +68,18 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
             }
         }
 
-        private static List<ReportSearchResultItemModel> MapArchiveItemToResult(List<ArchiveEntry> archiveItems)
+        private static List<ArchiveResultItem> MapArchiveItemToResult(List<ArchiveEntry> archiveItems)
         {
-            var archiveResults = new List<ReportSearchResultItemModel>();
+            var archiveResults = new List<ArchiveResultItem>();
             foreach(var archiveItem in archiveItems)
             {
-                var reportSearchResultItem = new ReportSearchResultItemModel()
+                var reportSearchResultItem = new ArchiveResultItem()
                 {
                     ItemId = archiveItem.ItemId,
                     ItemName = archiveItem.Name,
                     UpdatedBy = archiveItem.ArchivedBy,
-                    UpdatedDate = archiveItem.ArchiveDate
+                    UpdatedDate = archiveItem.ArchiveDate,
+                    FullPath = archiveItem.OriginalLocation
                 };
                 archiveResults.Add(reportSearchResultItem);
             }

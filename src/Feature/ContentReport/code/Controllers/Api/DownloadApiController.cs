@@ -39,11 +39,11 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             var csv = new StringBuilder();
             if (type == "ArchivedItems")
             {
-                csv.AppendLine("Archive Item Id,Archive Item Name,Archive By,Archive Date");
+                csv.AppendLine("Archive Item Id,Archive Item Name,Archive By,Archive Date, Original Path");
                 if (tabItemModel == null || tabItemModel.ArchivedItems == null || tabItemModel.ArchivedItems.Count <= 0) return csv;
                 foreach (var result in tabItemModel.ArchivedItems)
                 {
-                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4}", result.ItemId, result.Name, result.CreatedBy, result.CreatedDate));
+                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.ItemName, result.UpdatedBy, result.UpdatedDate, result.FullPath));
                 }
             }
             if (type == "CreatedItem")
