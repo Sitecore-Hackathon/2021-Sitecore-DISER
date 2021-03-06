@@ -47,7 +47,7 @@ namespace SitecoreDiser.Feature.ContentReport.Service
                     //Getting results from the index
                     SearchResults<T> querySearchHits;
 
-                    querySearchHits = page == -1 ? baseQuery.GetResults() : baseQuery.Page(page - 1, (int)10).GetResults();
+                    querySearchHits = page <= 0 ? baseQuery.GetResults() : baseQuery.Page(page - 1, (int)10).GetResults();
 
                     results = querySearchHits.Select(e => e.Document).ToList();
                 }

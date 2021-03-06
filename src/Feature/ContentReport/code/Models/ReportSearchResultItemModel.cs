@@ -22,7 +22,7 @@ namespace SitecoreDiser.Feature.ContentReport.Models
 
         [IndexField(Constants.Indexes.ContentIndex.Fields.ItemName)]
         [DataMember]
-        public int ItemName { get; set; }
+        public string ItemName { get; set; }
 
         [IndexField(Constants.Indexes.ContentIndex.Fields.WorkflowState)]
         [DataMember]
