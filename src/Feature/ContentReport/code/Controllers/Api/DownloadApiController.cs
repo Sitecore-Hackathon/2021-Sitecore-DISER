@@ -14,13 +14,13 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         public DownloadApiController()
         {
         }
-       
+
         [HttpPost]
         public IHttpActionResult DownloadReport(RequestModel request)
         {
             var _contentReportRepository = new ContentReportRepository();
             var csvFileName = request.Type + ".csv";
-            var csvContent = GenerateCsv(_contentReportRepository.GetResults(request));
+            var csvContent = GenerateCsv(_contentReportRepository.GetResults(request), request.Type);
 
             //Download the CSV file.
             HttpContext.Current.Response.Clear();
@@ -34,14 +34,26 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             return null;
         }
 
-        private StringBuilder GenerateCsv(List<ResultModel> results)
+        private StringBuilder GenerateCsv(ReportTabItemModel tabItemModel, string type)
         {
             var csv = new StringBuilder();
-            csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
-            if (results == null) return csv;
-            foreach (var result in results)
+            if (type == "ArchivedItems")
             {
-                csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.ItemName, result.ItemPath, result.User, result.Language, result.Version));
+                csv.AppendLine("Archive Item Id,Archive Item Name,Archive By,Archive Date");
+                if (tabItemModel == null || tabItemModel.Results == null || tabItemModel.Results.Count <= 0) return csv;
+                foreach (var result in tabItemModel.ArchivedItems)
+                {
+                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ArchivalId, result.ArchiveName, result.ArchivedBy, result.ArchiveLocalDate));
+                }
+            }
+            else
+            {
+                csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
+                if (tabItemModel == null || tabItemModel.Results == null || tabItemModel.Results.Count <= 0) return csv;
+                foreach (var result in tabItemModel.Results)
+                {
+                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.ItemName, result.FullPath, result.UpdatedBy, result.Language, result.Version));
+                }
             }
             return csv;
         }

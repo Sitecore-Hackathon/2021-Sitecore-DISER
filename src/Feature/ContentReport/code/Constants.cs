@@ -28,6 +28,7 @@
                     public const string WorkflowState = "__workflow_state";
                     public const string WorkflowVersion = "_version";
                     public const string ComputedSourcePath = "c_sourcepath_sm";
+                    public const string ItemName = "_name";
                 }
             }
         }
