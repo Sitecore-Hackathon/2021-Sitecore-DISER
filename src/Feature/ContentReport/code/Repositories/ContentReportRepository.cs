@@ -37,7 +37,9 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
 
         public ReportDataModel GetResults(ReportModel request)
         {
-            var updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
+            List<ReportSearchResultItemModel> updatedItems = null;
+            if (request != null && request.Type != "ArchivedItems")
+                    updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
             return ReportHelper.GetReport(updatedItems, request);
         }
 
