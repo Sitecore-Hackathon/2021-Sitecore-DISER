@@ -60,11 +60,11 @@
             $("#tab-Summary").addClass("active");
             $("#tab-CreatedItems").removeClass("active");
             $("#tab-UpdatedItems").removeClass("active");
-            $("#tab-Archived").removeClass("active");
+            $("#tab-ArchivedItems").removeClass("active");
             $("#tab-list-Summary").addClass("active");
             $("#tab-list-CreatedItems").removeClass("active");
             $("#tab-list-UpdatedItems").removeClass("active");
-            $("#tab-list-Archived").removeClass("active");
+            $("#tab-list-ArchivedItems").removeClass("active");
         }
     };
 
