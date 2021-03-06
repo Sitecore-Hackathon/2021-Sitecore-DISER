@@ -16,6 +16,7 @@ You can find a very good reference to Github flavoured markdown reference in [th
 
 ## Description
 ⟹ Document uploaded to "Submission" Folder
+- SitecoreDISER-Content-Report-Module.docx
 _You can alternately paste a [link here](#docs) to a document within this repo containing the description._
 
 ## Video link
@@ -30,10 +31,7 @@ _You can alternately paste a [link here](#docs) to a document within this repo c
 ⟹ Does your module rely on other Sitecore modules or frameworks?
 
 - List any dependencies
-- Or other modules that must be installed
-- Or services that must be enabled/configured
-
-_Remove this subsection if your entry does not have any prerequisites other than Sitecore_
+- Sitecore Search
 
 ## Installation instructions
 ⟹ Write a short clear step-wise instruction on how to install your module.  
