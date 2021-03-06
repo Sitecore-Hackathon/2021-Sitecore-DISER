@@ -474,11 +474,10 @@
     <Compile Include="Controllers\ContentReportController.cs" />
     <Compile Include="Helper\IndexHelper.cs" />
     <Compile Include="Helper\ReportHelper.cs" />
-    <Compile Include="Models\ContentReportModel.cs" />
+    <Compile Include="Models\ReportContentModel.cs" />
     <Compile Include="Models\ReportSearchResultItemModel.cs" />
-    <Compile Include="Models\ReportTabItemModel.cs" />
-    <Compile Include="Models\RequestModel.cs" />
-    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\ReportDataModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ContentReportRepository.cs" />

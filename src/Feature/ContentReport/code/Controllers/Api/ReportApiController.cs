@@ -16,7 +16,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         }
 
         [System.Web.Http.HttpPost]
-        public IHttpActionResult GetReport(RequestModel request)
+        public IHttpActionResult GetReport(ReportModel request)
         {
             return null;
         }

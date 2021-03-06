@@ -16,7 +16,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         }
 
         [HttpPost]
-        public IHttpActionResult DownloadReport(RequestModel request)
+        public IHttpActionResult DownloadReport(ReportModel request)
         {
             var _contentReportRepository = new ContentReportRepository();
             var csvFileName = request.Type + ".csv";
@@ -34,7 +34,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             return null;
         }
 
-        private StringBuilder GenerateCsv(ReportTabItemModel tabItemModel, string type)
+        private StringBuilder GenerateCsv(ReportDataModel tabItemModel, string type)
         {
             var csv = new StringBuilder();
             if (type == "ArchivedItems")

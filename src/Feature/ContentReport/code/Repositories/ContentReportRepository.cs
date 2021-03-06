@@ -15,22 +15,37 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         {
             _searchService = DependencyResolver.Current.GetService<SearchService<ReportSearchResultItemModel>>();
         }
+
         /// <summary>
-        /// Get Content Report model for View
+        /// Get Report Content model for View
         /// </summary>
         /// <returns>Content report model</returns>
-        public ContentReportModel GetContentReport()
+
+        public ReportContentModel GetContentReport()
         {
-            var model = new ContentReportModel
+            var model = new ReportContentModel
             {
                 SearchText = "Generate Report",
-                SearchLink = "", // Url of API
-                Tabs = GetTabs(),
+                SearchLink = "", // Url of API               
             };
             return model;
         }
 
-        public ReportTabItemModel GetResults(RequestModel request)
+        /// <summary>
+        /// Get Report data Post Request
+        /// </summary>
+        /// <returns>Content report model</returns>
+        public ReportModel GetContentReport(ReportModel reportModel)
+        {
+            var model = new ReportModel
+            {
+                ReportContent = reportModel.ReportContent,
+                ReportData = GetResults(reportModel)
+            };
+            return model;
+        }
+
+        public ReportDataModel GetResults(ReportModel request)
         {
             var reportSearchResultModel = new ReportSearchResultItemModel();
             var updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
@@ -41,14 +56,14 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         /// Get Tabs data for Model
         /// </summary>
         /// <returns>List of Tabs</returns>
-        private List<ReportTabItemModel> GetTabs()
+        private List<ReportDataModel> GetTabs()
         {
-            var tabs = new List<ReportTabItemModel>
+            var tabs = new List<ReportDataModel>
             {
-                new ReportTabItemModel() { DownloadText = "", DownloadLink = "", Name = "Summary", Type = "Summary" },
-                new ReportTabItemModel() { DownloadText = "Generate Create Items Report", DownloadLink = "", Name = "Created Items", Type = "Created Items" },
-                new ReportTabItemModel() { DownloadText = "Generate Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "Updated Items" },
-                new ReportTabItemModel() { DownloadText = "Generate Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "Archived Items" }
+                new ReportDataModel() { DownloadText = "", DownloadLink = "", Name = "Summary", Type = "Summary" },
+                new ReportDataModel() { DownloadText = "Download Create Items Report", DownloadLink = "", Name = "Created Items", Type = "Created Items" },
+                new ReportDataModel() { DownloadText = "Download Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "Updated Items" },
+                new ReportDataModel() { DownloadText = "Download Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "Archived Items" }
             };
             return tabs;
         }

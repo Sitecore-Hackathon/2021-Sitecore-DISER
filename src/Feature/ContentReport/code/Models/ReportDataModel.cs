@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SitecoreDiser.Feature.ContentReport.Models
 {
-    public class ReportTabItemModel
+    public class ReportDataModel
     {
         public string Name { get; set; }
 
@@ -25,5 +25,7 @@ namespace SitecoreDiser.Feature.ContentReport.Models
         public int CreatedPages { get; set; }
         public int UpdatedPages { get; set; }
         public int ArchivedPages { get; set; }
+        public string SearchText { get; set; }
+        public string SearchLink { get; set; }
     }
 }
