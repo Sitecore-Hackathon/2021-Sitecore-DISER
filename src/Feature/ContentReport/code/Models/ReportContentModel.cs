@@ -5,14 +5,8 @@ using System.Web;
 
 namespace SitecoreDiser.Feature.ContentReport.Models
 {
-    public class ContentReportModel
+    public class ReportContentModel
     {
-        public DateTime StartDate { get; set; }
-        
-        public DateTime EndDate { get; set; }
-
-        public List<ReportTabItemModel> Tabs { get; set; }
-
         public string SearchText { get; set; }
 
         public string SearchLink { get; set; }

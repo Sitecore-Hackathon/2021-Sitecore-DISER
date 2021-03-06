@@ -5,8 +5,8 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
 {
     public interface IContentReportRepository
     {
-        ContentReportModel GetContentReport();
+        ReportContentModel GetContentReport();
 
-        ReportTabItemModel GetResults(RequestModel request);
+        ReportModel GetContentReport(ReportModel reportModel);
     }
 }

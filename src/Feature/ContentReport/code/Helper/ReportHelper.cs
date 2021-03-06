@@ -13,32 +13,32 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
     {
         private static readonly string _localFolder = "_local";
 
-        public static ReportTabItemModel GetReport(List<ReportSearchResultItemModel> updatedItems, RequestModel requestModel)
+        public static ReportDataModel GetReport(List<ReportSearchResultItemModel> updatedItems, ReportModel reportModel)
         {
             try
             {
-                var reportTabItemModel = new ReportTabItemModel();
+                var reportTabItemModel = new ReportDataModel();
 
                 var homePath = ItemExtensions.GetItemPathById(Settings.GetSetting("HomeItemId"));
 
                 var approvedItems = updatedItems.Where(x => (x.FullPath.StartsWith(homePath, StringComparison.OrdinalIgnoreCase))
                                                         && x.WorkflowState == Settings.GetSetting("WorkflowItemId")).ToList();
 
-                if (requestModel.Type == "CreatedItem")
+                if (reportModel.Type == "CreatedItem")
                 {
                     var createdApprovedItems = approvedItems.Where(x => x.ItemVersion == 1).ToList();
                     reportTabItemModel.Results = GetPageItems(createdApprovedItems, true);
                     reportTabItemModel.CreatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
                 }
 
-                else if (requestModel.Type == "UpdatedItem")
+                else if (reportModel.Type == "UpdatedItem")
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
                     reportTabItemModel.Results = GetPageItems(updatedApprovedItems, false, reportTabItemModel.Results);
                     reportTabItemModel.UpdatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
                 }
 
-                else if (requestModel.Type == "ArchivedItems")
+                else if (reportModel.Type == "ArchivedItems")
                 {
                     // get the archive database for the master database
                     var master = Factory.GetDatabase(Constants.Database);
@@ -48,8 +48,8 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                     //get Archived items
                     var archivedItems = archive.GetEntries(0, int.MaxValue)
                                         .Where(entry =>
-                                            entry.ArchiveDate >= requestModel.StartDateTime &&
-                                            entry.ArchiveDate <= requestModel.EndDateTime &&
+                                            entry.ArchiveDate >= reportModel.StartDateTime &&
+                                            entry.ArchiveDate <= reportModel.EndDateTime &&
                                             (entry.OriginalLocation.StartsWith(homePath))
                                         ).ToList();
 

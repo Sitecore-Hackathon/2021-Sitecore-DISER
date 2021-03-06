@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SitecoreDiser.Feature.ContentReport.Models
 {
-    public class RequestModel
+    public class ReportModel
     {
         public string StartDate { get; set; }
         public DateTime? StartDateTime => string.IsNullOrWhiteSpace(StartDate) ? (DateTime?)null : DateTime.ParseExact(StartDate, "d/M/yyyy", CultureInfo.InvariantCulture).ToUniversalTime();
@@ -15,5 +15,7 @@ namespace SitecoreDiser.Feature.ContentReport.Models
         public string Type { get; set; }
         public int Page { get; set; }
         public int NoOfItems { get; set; }
+        public ReportDataModel ReportData { get; set; }
+        public ReportContentModel ReportContent { get; set; }
     }
 }

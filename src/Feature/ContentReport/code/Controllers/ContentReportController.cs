@@ -1,4 +1,5 @@
-﻿using SitecoreDiser.Feature.ContentReport.Repositories;
+﻿using SitecoreDiser.Feature.ContentReport.Models;
+using SitecoreDiser.Feature.ContentReport.Repositories;
 using System.Web.Mvc;
 
 namespace SitecoreDiser.Feature.ContentReport.Controllers
@@ -14,8 +15,12 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers
 
         public ActionResult ContentReport()
         {
-
             return View(_contentReportRepository.GetContentReport());
+        }
+        [HttpPost]
+        public ActionResult ContentReport(ReportModel reportModel)
+        {
+            return View(_contentReportRepository.GetContentReport(reportModel));
         }
     }
 }
