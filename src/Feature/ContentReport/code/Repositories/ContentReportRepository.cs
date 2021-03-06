@@ -21,12 +21,14 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         /// </summary>
         /// <returns>Content report model</returns>
 
+
         public ReportContentModel GetContentReport()
         {
             var model = new ReportContentModel
             {
                 SearchText = "Generate Report",
-                SearchLink = "", // Url of API               
+                SearchLink = "", // Url of API      
+                Tabs = GetTabs()
             };
             return model;
         }
@@ -56,14 +58,14 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         /// Get Tabs data for Model
         /// </summary>
         /// <returns>List of Tabs</returns>
-        private List<ReportDataModel> GetTabs()
+        private List<ReportTabItemModel> GetTabs()
         {
-            var tabs = new List<ReportDataModel>
+            var tabs = new List<ReportTabItemModel>
             {
-                new ReportDataModel() { DownloadText = "", DownloadLink = "", Name = "Summary", Type = "Summary" },
-                new ReportDataModel() { DownloadText = "Download Create Items Report", DownloadLink = "", Name = "Created Items", Type = "Created Items" },
-                new ReportDataModel() { DownloadText = "Download Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "Updated Items" },
-                new ReportDataModel() { DownloadText = "Download Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "Archived Items" }
+                new ReportTabItemModel() { DownloadText = "", DownloadLink = "", Name = "Summary", Type = "Summary" },
+                new ReportTabItemModel() { DownloadText = "Download Create Items Report", DownloadLink = "", Name = "Created Items", Type = "Created Items" },
+                new ReportTabItemModel() { DownloadText = "Download Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "Updated Items" },
+                new ReportTabItemModel() { DownloadText = "Download Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "Archived Items" }
             };
             return tabs;
         }

@@ -478,6 +478,7 @@
     <Compile Include="Models\ReportSearchResultItemModel.cs" />
     <Compile Include="Models\ReportDataModel.cs" />
     <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\ReportTabItemModel.cs" />
     <Compile Include="Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ContentReportRepository.cs" />
