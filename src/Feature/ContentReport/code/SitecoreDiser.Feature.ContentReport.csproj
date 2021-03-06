@@ -463,6 +463,7 @@
     <Compile Include="Controllers\Api\ReportApiController.cs" />
     <Compile Include="Controllers\ContentReportController.cs" />
     <Compile Include="Helper\IndexHelper.cs" />
+    <Compile Include="Helper\ReportHelper.cs" />
     <Compile Include="Models\ContentReportModel.cs" />
     <Compile Include="Models\ReportSearchResultItemModel.cs" />
     <Compile Include="Models\ReportTabItemModel.cs" />
@@ -490,6 +491,10 @@
     <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\SitecoreDiser.Foundation.DependencyInjection.csproj">
       <Project>{f5a0fa80-1d1f-42d9-b949-dd33915d7a85}</Project>
       <Name>SitecoreDiser.Foundation.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Extensions\code\SitecoreDiser.Extensions.csproj">
+      <Project>{c4f9adfd-9987-4acb-a4eb-a9bd598f7985}</Project>
+      <Name>SitecoreDiser.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
