@@ -512,6 +512,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\SitecoreDiser\SitecoreDiserLayout.cshtml" />
+    <None Include="Properties\PublishProfiles\SitecoreDiser.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -520,7 +521,6 @@
   <ItemGroup>
     <None Include="Views\web.config" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\Publish-SitecoreDiser.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

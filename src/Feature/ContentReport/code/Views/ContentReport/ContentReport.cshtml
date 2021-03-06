@@ -7,20 +7,24 @@
             <label>Content Report</label>
         </div>
         <div class="c-wrapper center">
-            <div class="row center">
-                <div class="col-md-6">
+            <div class="row cr-p12">
+                <div class="col-md-6 cr-ta-rt">
                     <label class="py-3">Start Date</label>
                     <input id="fromdate" type="text" data-provide="datepicker" readonly />
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 cr-ta-lt">
                     <label class="py-3">End Date</label>
                     <input id="todate" type="text" data-provide="datepicker" readonly />
                 </div>
-                <div id="error-message" class="row center error-message"></div>
-            </div>            
-            <div class="row center w-50-pr">
-                <div class=center w-50-pr">
-                    <button id="generate-report" title="@Model.SearchText" class="btn btn-success" onclick="generateReport(this);">@Model.SearchText</button>
+
+            </div>
+            <div class="row">
+                <div id="error-message" class="row error-message cr-p12"></div>
+            </div>
+
+            <div class="row">
+                <div class="cr-td-ta-ctr cr-p12">
+                    <button id="generate-report" title="@Model.SearchText" class="btn btn-success cr-p12" onclick="generateReport(this);">@Model.SearchText</button>
                 </div>
             </div>
         </div>
@@ -92,7 +96,7 @@
 
                                 if (!string.IsNullOrEmpty(Model.Tabs[i].DownloadText) && Model.Tabs[i].Type != "Summary")
                                 {
-                                    <button id="btn-@Model.Tabs[i].Name" title="@Model.Tabs[i].DownloadText" class="btn btn-success" onclick="processDownload(this, '@Model.Tabs[i].Type')">@Model.Tabs[i].DownloadText</button>
+                                    <button id="btn-@Model.Tabs[i].Name" title="@Model.Tabs[i].DownloadText" class="btn btn-success cr-p12" onclick="processDownload(this, '@Model.Tabs[i].Type')">@Model.Tabs[i].DownloadText</button>
                                 }
                             }
 

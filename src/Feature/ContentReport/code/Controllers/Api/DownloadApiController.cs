@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SitecoreDiser.Extensions.Attributes;
 using SitecoreDiser.Feature.ContentReport.Models;
 using SitecoreDiser.Feature.ContentReport.Repositories;
 using System.Text;
@@ -20,6 +21,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         /// <param name="request">request model</param>
         /// <returns>csv file in http response</returns>
         [HttpPost]
+        [AuthorizeApi(AllowAnonymous = false, AllowDatabase = AuthorizeApiAttribute.SitecoreDatabase.Master)]
         public IHttpActionResult DownloadReport(ReportModel request)
         {
             if (!request.IsValid())

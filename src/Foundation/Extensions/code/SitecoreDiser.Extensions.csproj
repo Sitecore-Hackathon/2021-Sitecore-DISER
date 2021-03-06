@@ -247,7 +247,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\Foundation SitecoreDiser Extensions.pubxml" />
+    <None Include="Properties\PublishProfiles\Extensions.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
