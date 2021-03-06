@@ -21,11 +21,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         public IHttpActionResult GetReport(ReportModel request)
         {
             var result = new ContentReportRepository().GetResults(request);
-            return Json(JsonConvert.SerializeObject(result, Formatting.None,
-                        new JsonSerializerSettings()
-                        {
-                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                        }));
+            return Json(result);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using SitecoreDiser.Extensions.Extensions;
 using Sitecore.Configuration;
 using Sitecore;
+using Sitecore.Data.Archiving;
 
 namespace SitecoreDiser.Feature.ContentReport.Helper
 {
@@ -53,7 +54,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                                             (entry.OriginalLocation.StartsWith(homePath))
                                         ).ToList();
 
-                    reportDataModel.ArchivedItems = archivedItems;
+                    reportDataModel.ArchivedItems = MapArchiveItemToResult(archivedItems);
                     reportDataModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
                 }
                 return reportDataModel;
@@ -64,6 +65,23 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                 Sitecore.Diagnostics.Log.Error("Failed to get the report" + ex.Message, ex, typeof(ReportHelper));
                 return null;
             }
+        }
+
+        private static List<ReportSearchResultItemModel> MapArchiveItemToResult(List<ArchiveEntry> archiveItems)
+        {
+            var archiveResults = new List<ReportSearchResultItemModel>();
+            foreach(var archiveItem in archiveItems)
+            {
+                var reportSearchResultItem = new ReportSearchResultItemModel()
+                {
+                    ItemId = archiveItem.ItemId,
+                    ItemName = archiveItem.Name,
+                    UpdatedBy = archiveItem.ArchivedBy,
+                    UpdatedDate = archiveItem.ArchiveDate
+                };
+                archiveResults.Add(reportSearchResultItem);
+            }
+            return archiveResults;
         }
 
         private static List<ReportSearchResultItemModel> GetPageItems(List<ReportSearchResultItemModel> items, bool isCreatedPages = false, List<ReportSearchResultItemModel> createdPages = null)
