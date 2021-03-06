@@ -1,2 +1,27 @@
-﻿body {
+﻿.display-flex {
+    display: flex;
+}
+
+.center {
+    margin: auto;
+    width: 70%;
+    padding: 12px;
+}
+
+.w-50-pr {
+    width: 50% !important;
+}
+
+.nav-bar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
 }

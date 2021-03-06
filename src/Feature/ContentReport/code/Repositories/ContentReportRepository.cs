@@ -36,9 +36,9 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
             var tabs = new List<ReportTabItemModel>
             {
                 new ReportTabItemModel() { DownloadText = "", DownloadLink = "", Name = "Summary", Type = "Summary" },
-                new ReportTabItemModel() { DownloadText = "Generate Create Items Report", DownloadLink = "", Name = "Created Items", Type = "Created Items" },
-                new ReportTabItemModel() { DownloadText = "Generate Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "Updated Items" },
-                new ReportTabItemModel() { DownloadText = "Generate Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "Archived Items" }
+                new ReportTabItemModel() { DownloadText = "Download Create Items Report", DownloadLink = "", Name = "Created Items", Type = "Created Items" },
+                new ReportTabItemModel() { DownloadText = "Download Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "Updated Items" },
+                new ReportTabItemModel() { DownloadText = "Download Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "Archived Items" }
             };
             return tabs;
         }
