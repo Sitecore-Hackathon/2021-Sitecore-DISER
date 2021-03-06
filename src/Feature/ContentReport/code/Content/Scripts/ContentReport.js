@@ -63,8 +63,13 @@
             success: function (results) {
                 $(results).each(function (index, result) {
                     console.log(result);
+                    $('#summary-label').text("Content Report Details from " + $('#fromdate').val() + " to " + $('#todate').val());
                     $('#item-created-label').text("Total Items Created : ");
                     $('#item-created').text(" " + result.CreatedPages);
+                    $('#item-updated-label').text("Total Items Updated : ");
+                    $('#item-updated').text(" " + result.UpdatedPages);
+                    $('#item-archived-label').text("Total Items Archived : ");
+                    $('#item-archived').text(" " + result.ArchivedPages);
                 });
             }
         });
