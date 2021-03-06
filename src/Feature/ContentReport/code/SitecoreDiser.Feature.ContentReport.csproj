@@ -451,6 +451,7 @@
   <ItemGroup>
     <Content Include="Content\Css\ContentReport.css" />
     <Content Include="Content\Scripts\ContentReport.js" />
+    <Content Include="App_Config\Include\Feature\ContentReport\Search.Setting.config" />
     <None Include="Properties\PublishProfiles\Feature ContentReport.pubxml" />
     <Content Include="Views\ContentReport\ContentReport.cshtml" />
     <None Include="Web.config" />
@@ -480,7 +481,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Config\Include\Feature\ContentReport\" />
     <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
