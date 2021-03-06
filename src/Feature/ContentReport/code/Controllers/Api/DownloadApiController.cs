@@ -9,34 +9,18 @@ using System.Web.Http;
 
 namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
 {
-    public class DownloadApiController
+    public class DownloadApiController : ApiController
     {
-        private readonly IContentReportRepository _contentReportRepository;
-
-        public DownloadApiController(IContentReportRepository contentReportRepository)
+        public DownloadApiController()
         {
-            _contentReportRepository = contentReportRepository;
         }
-
+       
         [HttpPost]
         public IHttpActionResult DownloadReport(RequestModel request)
         {
-            var csvFileName = "Results.csv";
+            var _contentReportRepository = new ContentReportRepository();
+            var csvFileName = request.Type + ".csv";
             var csvContent = GenerateCsv(_contentReportRepository.GetResults(request));
-            switch (request.Type)
-            {
-                case "CreatedItem":
-                    csvFileName = "CreatedItems.csv";
-                    break;
-                case "UpdatedItem":
-                    csvFileName = "UpdatedItems.csv";
-                    break;
-                case "ArchivedItem":
-                    csvFileName = "ArchivedItems.csv";
-                    break;
-                default:
-                    break;
-            }
 
             //Download the CSV file.
             HttpContext.Current.Response.Clear();
@@ -54,6 +38,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         {
             var csv = new StringBuilder();
             csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
+            if (results == null) return csv;
             foreach (var result in results)
             {
                 csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.ItemName, result.ItemPath, result.User, result.Language, result.Version));

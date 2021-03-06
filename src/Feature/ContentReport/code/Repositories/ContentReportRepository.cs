@@ -24,7 +24,7 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
 
         public List<ResultModel> GetResults(RequestModel request)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
         /// <summary>
