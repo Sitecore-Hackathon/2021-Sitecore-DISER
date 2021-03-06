@@ -58,12 +58,22 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             if (type == "UpdatedItem")
             {
                 csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
-                if (tabItemModel == null || tabItemModel.CreatedResults == null || tabItemModel.CreatedResults.Count <= 0) return csv;
-                foreach (var result in tabItemModel.CreatedResults)
+                if (tabItemModel == null || tabItemModel.UpdatedResults == null || tabItemModel.UpdatedResults.Count <= 0) return csv;
+                foreach (var result in tabItemModel.UpdatedResults)
                 {
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
                 }
             }
+
+            if (type == "Summary" || string.IsNullOrEmpty(type))
+            {
+                csv.AppendLine("Total Items Created,Total Items Updated,Total Items Archived");
+                if (tabItemModel == null) return csv;
+
+                csv.AppendLine(string.Format("{0},{1},{2}", tabItemModel.CreatedPages, tabItemModel.UpdatedPages, tabItemModel.ArchivedPages));
+
+            }
+
             return csv;
         }
     }
