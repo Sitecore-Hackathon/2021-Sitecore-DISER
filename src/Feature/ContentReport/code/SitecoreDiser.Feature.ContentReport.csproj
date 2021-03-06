@@ -453,11 +453,15 @@
     <Content Include="Content\Css\ContentReport.css" />
     <Content Include="Content\Scripts\ContentReport.js" />
     <None Include="Properties\PublishProfiles\Feature ContentReport.pubxml" />
+    <Content Include="Views\ContentReport\ContentReport.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\ContentReportController.cs" />
+    <Compile Include="Models\ContentReportModel.cs" />
+    <Compile Include="Models\ReportTabItemModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ContentReportRepository.cs" />
     <Compile Include="Repositories\IContentReportRepository.cs" />
@@ -475,7 +479,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\SitecoreDiser.Foundation.DependencyInjection.csproj">

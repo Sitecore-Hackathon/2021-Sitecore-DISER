@@ -14,7 +14,8 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers
 
         public ActionResult ContentReport()
         {
-            return View();
+
+            return View(_contentReportRepository.GetContentReport());
         }
     }
 }
