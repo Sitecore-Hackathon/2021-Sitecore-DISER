@@ -52,7 +52,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
                 if (tabItemModel == null || tabItemModel.Results == null || tabItemModel.Results.Count <= 0) return csv;
                 foreach (var result in tabItemModel.Results)
                 {
-                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.ItemName, result.FullPath, result.UpdatedBy, result.Language, result.Version));
+                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
                 }
             }
             return csv;
