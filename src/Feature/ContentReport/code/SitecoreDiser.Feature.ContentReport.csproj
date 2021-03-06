@@ -460,7 +460,9 @@
     <Compile Include="Api\Controllers\DownloadApiController.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\ContentReportController.cs" />
+    <Compile Include="Helper\IndexHelper.cs" />
     <Compile Include="Models\ContentReportModel.cs" />
+    <Compile Include="Models\ReportSearchResultItemModel.cs" />
     <Compile Include="Models\ReportTabItemModel.cs" />
     <Compile Include="Models\RequestModel.cs" />
     <Compile Include="Models\ResultModel.cs" />
@@ -480,9 +482,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helper\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\SitecoreDiser.Foundation.DependencyInjection.csproj">
       <Project>{f5a0fa80-1d1f-42d9-b949-dd33915d7a85}</Project>
