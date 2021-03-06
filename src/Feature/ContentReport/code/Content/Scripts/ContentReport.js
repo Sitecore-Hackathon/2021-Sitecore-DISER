@@ -51,6 +51,7 @@
     generateReport = function (e) {
         var startDate = new Date($('#fromdate').val());
         var endDate = new Date($('#todate').val());
+        $('#error-message').empty();
 
         if (startDate <= endDate) {
             var params = {
