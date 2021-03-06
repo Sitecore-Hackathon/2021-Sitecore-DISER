@@ -33,9 +33,8 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         public ReportTabItemModel GetResults(RequestModel request)
         {
             var reportSearchResultModel = new ReportSearchResultItemModel();
-            var updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value));
+            var updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
             return ReportHelper.GetReport(updatedItems, request);
-            //return resultData;
         }
 
         /// <summary>

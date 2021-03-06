@@ -14,7 +14,7 @@ namespace SitecoreDiser.Feature.ContentReport.Service
     [Service]
     public class SearchService<T> where T : SearchResultItem
     {
-        public List<T> GetResults(Expression<Func<T, bool>> predicates = null, string index = null, int page = -1)
+        public List<T> GetResults(Expression<Func<T, bool>> predicates = null, int page = -1, string index = null)
         {
             List<T> results = new List<T>();
             try
