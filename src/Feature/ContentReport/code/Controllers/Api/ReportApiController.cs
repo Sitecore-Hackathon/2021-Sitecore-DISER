@@ -1,4 +1,5 @@
-﻿using SitecoreDiser.Feature.ContentReport.Models;
+﻿using Newtonsoft.Json;
+using SitecoreDiser.Feature.ContentReport.Models;
 using SitecoreDiser.Feature.ContentReport.Repositories;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,11 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         public IHttpActionResult GetReport(ReportModel request)
         {
             var result = new ContentReportRepository().GetResults(request);
-            return Json(result);
+            return Json(JsonConvert.SerializeObject(result, Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                        }));
         }
     }
 }

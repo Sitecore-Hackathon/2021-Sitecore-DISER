@@ -27,14 +27,16 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                 if (reportModel.Type == "CreatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var createdApprovedItems = approvedItems.Where(x => x.ItemVersion == 1).ToList();
-                    reportDataModel.Results = GetPageItems(createdApprovedItems, true);
+                    if (!string.IsNullOrEmpty(reportModel.Type))
+                        reportDataModel.Results = GetPageItems(createdApprovedItems, true);
                     reportDataModel.CreatedPages = reportDataModel.Results.Any() ? reportDataModel.Results.Count : 0;
                 }
 
                 if (reportModel.Type == "UpdatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
-                    reportDataModel.Results = GetPageItems(updatedApprovedItems, false, reportDataModel.Results);
+                    if (!string.IsNullOrEmpty(reportModel.Type))
+                        reportDataModel.Results = GetPageItems(updatedApprovedItems, false, reportDataModel.Results);
                     reportDataModel.UpdatedPages = reportDataModel.Results.Any() ? reportDataModel.Results.Count : 0;
                 }
 
@@ -52,7 +54,6 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                                             entry.ArchiveDate <= reportModel.EndDateTime &&
                                             (entry.OriginalLocation.StartsWith(homePath))
                                         ).ToList();
-
                     reportDataModel.ArchivedItems = archivedItems;
                     reportDataModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
                 }
