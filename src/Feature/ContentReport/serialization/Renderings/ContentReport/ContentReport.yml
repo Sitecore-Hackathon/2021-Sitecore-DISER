@@ -1,0 +1,28 @@
+﻿---
+ID: "41a82bea-0e4f-41f2-b778-12a6ac1ed07a"
+Parent: "c2094c30-139d-46ba-b2bb-ef7f5233e7e8"
+Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
+Path: /sitecore/layout/Renderings/Feature/ContentReport/ContentReport
+DB: master
+SharedFields:
+- ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
+  Hint: Controller Action
+  Value: ContentReport
+- ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
+  Hint: Controller
+  Value: SitecoreDiser.Feature.ContentReport.Controllers, SitecoreDiser.Feature.ContentReport
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Value: "20210306T032824:637505981047746669Z"
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210306T032310Z
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20210306T032310Z

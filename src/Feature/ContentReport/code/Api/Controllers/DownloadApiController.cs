@@ -23,7 +23,7 @@ namespace SitecoreDiser.Feature.ContentReport.Api.Controllers
         {
             var csvFileName = "Results.csv";
             var csvContent = GenerateCsv(_contentReportRepository.GetResults(request));
-            switch (type)
+            switch (request.Type)
             {
                 case "CreatedItem":
                     csvFileName = "CreatedItems.csv";
