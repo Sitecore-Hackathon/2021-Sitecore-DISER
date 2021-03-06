@@ -24,21 +24,21 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                 var approvedItems = updatedItems.Where(x => (x.FullPath.StartsWith(homePath, StringComparison.OrdinalIgnoreCase))
                                                         && x.WorkflowState == Settings.GetSetting("WorkflowItemId")).ToList();
 
-                if (reportModel.Type == "CreatedItem")
+                if (reportModel.Type == "CreatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var createdApprovedItems = approvedItems.Where(x => x.ItemVersion == 1).ToList();
                     reportTabItemModel.Results = GetPageItems(createdApprovedItems, true);
                     reportTabItemModel.CreatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
                 }
 
-                else if (reportModel.Type == "UpdatedItem")
+                if (reportModel.Type == "UpdatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
                     reportTabItemModel.Results = GetPageItems(updatedApprovedItems, false, reportTabItemModel.Results);
                     reportTabItemModel.UpdatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
                 }
 
-                else if (reportModel.Type == "ArchivedItems")
+                if (reportModel.Type == "ArchivedItems" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     // get the archive database for the master database
                     var master = Factory.GetDatabase(Constants.Database);
