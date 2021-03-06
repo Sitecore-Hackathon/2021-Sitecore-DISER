@@ -22,6 +22,11 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
             return model;
         }
 
+        public List<ResultModel> GetResults(RequestModel request)
+        {
+            throw new System.NotImplementedException();
+        }
+
         /// <summary>
         /// Get Tabs data for Model
         /// </summary>
