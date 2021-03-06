@@ -10,15 +10,12 @@
     $('#fromdate').datepicker(options);
     $('#todate').datepicker(options);
 
-
-    // Tab Data tables    
-    $('#dt-tab-*').DataTable({
-        //data: data,
+    // Tab Data tables initialise
+    $('#dt-tab-' + params.Type).DataTable({        
         "paging": true,
         "ordering": true,
         "pagingType": "full_numbers"
     });
-
 
     processDownload = function (e, type) {
         if (validateInput()) {
@@ -97,8 +94,8 @@
             url: "/ReportApi/GetReport",
             type: 'Post',
             data: params,
-            success: function (results) {
-                $(results).each(function (index, result) {
+            success: function (result) {
+                if (!params.Type || params.Type == "Summary") {
                     $('#summary-label').html("CONTENT REPORT DETAILS");
                     $('#summary-label').addClass("cr-light");
                     $('#item-created-label').text("Total Items Created : ");
@@ -110,7 +107,10 @@
                     $('#detail-label').text("Form more details - check other tabs");
                     $('#detail-label').addClass("cr-light");
                     $('#summary-table').addClass('cr-border');
-                });
+                }
+                else {                    
+                    
+                }
             }
         });
     }
