@@ -11,7 +11,7 @@
     $('#todate').datepicker(options);
 
     // Tab Data tables initialise
-    $('#dt-tab-*').DataTable({        
+    $('#dt-tab-*').DataTable({
         "paging": true,
         "ordering": true,
         "pagingType": "full_numbers"
@@ -108,25 +108,24 @@
                     $('#detail-label').addClass("cr-light");
                     $('#summary-table').addClass('cr-border');
                 }
-                else {                    
+                else {
                     data = result;
                     populateDataTable(data, params.Type);
                 }
-            },            
+            },
             error: function (e) {
                 console.log("There was an error with the request");
             }
         });
 
         // populate the data table with JSON data
-        function populateDataTable(data, type) {           
+        function populateDataTable(data, type) {
             // clear the table before populating it with more data
-            $("#dt-tab-*").DataTable().clear();
+            $("#dt-tab-" + type).DataTable().clear();
             if (type == "CreatedItems") {
                 var length = Object.keys(data.CreatedResults).length;
                 for (var i = 0; i < length; i++) {
                     var item = data.CreatedResults[i];
-                    console.log(item);
                     if (item) {
                         // You could also use an ajax property on the data table initialization
                         if ($('#dt-tab-' + type)) {
@@ -142,11 +141,10 @@
                     }
                 }
             }
-            else if (type == "UpdatedItems"){
+            else if (type == "UpdatedItems") {
                 var length = Object.keys(data.UpdatedResults).length;
                 for (var i = 0; i < length; i++) {
                     var item = data.UpdatedResults[i];
-                    console.log(item);
                     if (item) {
                         // You could also use an ajax property on the data table initialization
                         if ($('#dt-tab-' + type)) {
@@ -162,11 +160,10 @@
                     }
                 }
             }
-            else if ((type == "ArchivedItems")){
+            else if ((type == "ArchivedItems")) {
                 var length = Object.keys(data.ArchivedItems).length;
                 for (var i = 0; i < length; i++) {
                     var item = data.ArchivedItems[i];
-                    console.log(item);
                     if (item) {
                         // You could also use an ajax property on the data table initialization
                         if ($('#dt-tab-' + type)) {
@@ -174,15 +171,13 @@
                                 item.ItemId,
                                 item.ItemName,
                                 item.FullPath,
-                                item.UpdatedBy,
-                                item.ItemVersion,
-                                ""
+                                item.UpdatedBy
                             ]);
                         }
                     }
                 }
             }
-            
-        }    
+
+        }
     }
 });

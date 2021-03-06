@@ -78,8 +78,11 @@
                                             <th>Name</th>
                                             <th>Path</th>
                                             <th>User</th>
-                                            <th>Version</th>
-                                            <th>Language</th>
+                                            @if (@Model.Tabs[i].Type != "ArchivedItems")
+                                            {
+                                                <th>Version</th>
+                                                <th>Language</th>
+                                            }
                                         </tr>
                                     </thead>
                                     <tbody>
