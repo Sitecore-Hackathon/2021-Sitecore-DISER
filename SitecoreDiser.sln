@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{6A51093E-4FB1-4811-B0DF-9FAC075EBBB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{D2449E80-61F8-4F5B-BF74-9057E44FB4ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{E19353BF-CDC4-4772-BABF-6F96F799770D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configs", "configs", "{2B21A996-1033-4FA5-9CB7-5C50BC35B12A}"
+	ProjectSection(SolutionItems) = preProject
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreDiser", "SitecoreDiser", "{2FCAB068-8421-4027-A01C-347BA8D322D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{E22EA6B7-E563-4A69-995F-55DD50B6C753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDiser.Serialization", "src\Foundation\Serialization\code\SitecoreDiser.Serialization.csproj", "{9B2464CC-0867-4712-BA75-D62310CC2759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDiser.Web", "src\Project\SitecoreDiser\code\SitecoreDiser.Web.csproj", "{5EE8131B-C00B-4E6F-A7A3-BF583DEAA23F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContentReport", "ContentReport", "{50ECA1D2-A761-4DF7-B68F-C45D351EA1ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDiser.Feature.ContentReport", "src\Feature\ContentReport\code\SitecoreDiser.Feature.ContentReport.csproj", "{0891B3A6-FFFE-4D35-88D6-E9FC9A20DBDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{78EE2BEA-B2A8-4230-9D96-1C6A99D26BCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDiser.Foundation.DependencyInjection", "src\Foundation\DependencyInjection\code\SitecoreDiser.Foundation.DependencyInjection.csproj", "{F5A0FA80-1D1F-42D9-B949-DD33915D7A85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{FC16AA50-12D1-407C-A0A7-642CE8DF05EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreDiser.Extensions", "src\Foundation\Extensions\code\SitecoreDiser.Extensions.csproj", "{C4F9ADFD-9987-4ACB-A4EB-A9BD598F7985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B2464CC-0867-4712-BA75-D62310CC2759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2464CC-0867-4712-BA75-D62310CC2759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2464CC-0867-4712-BA75-D62310CC2759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2464CC-0867-4712-BA75-D62310CC2759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE8131B-C00B-4E6F-A7A3-BF583DEAA23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE8131B-C00B-4E6F-A7A3-BF583DEAA23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE8131B-C00B-4E6F-A7A3-BF583DEAA23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE8131B-C00B-4E6F-A7A3-BF583DEAA23F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0891B3A6-FFFE-4D35-88D6-E9FC9A20DBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0891B3A6-FFFE-4D35-88D6-E9FC9A20DBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0891B3A6-FFFE-4D35-88D6-E9FC9A20DBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0891B3A6-FFFE-4D35-88D6-E9FC9A20DBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A0FA80-1D1F-42D9-B949-DD33915D7A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A0FA80-1D1F-42D9-B949-DD33915D7A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A0FA80-1D1F-42D9-B949-DD33915D7A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A0FA80-1D1F-42D9-B949-DD33915D7A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F9ADFD-9987-4ACB-A4EB-A9BD598F7985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F9ADFD-9987-4ACB-A4EB-A9BD598F7985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F9ADFD-9987-4ACB-A4EB-A9BD598F7985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F9ADFD-9987-4ACB-A4EB-A9BD598F7985}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2FCAB068-8421-4027-A01C-347BA8D322D1} = {6A51093E-4FB1-4811-B0DF-9FAC075EBBB1}
+		{E22EA6B7-E563-4A69-995F-55DD50B6C753} = {E19353BF-CDC4-4772-BABF-6F96F799770D}
+		{9B2464CC-0867-4712-BA75-D62310CC2759} = {E22EA6B7-E563-4A69-995F-55DD50B6C753}
+		{5EE8131B-C00B-4E6F-A7A3-BF583DEAA23F} = {2FCAB068-8421-4027-A01C-347BA8D322D1}
+		{50ECA1D2-A761-4DF7-B68F-C45D351EA1ED} = {D2449E80-61F8-4F5B-BF74-9057E44FB4ED}
+		{0891B3A6-FFFE-4D35-88D6-E9FC9A20DBDB} = {50ECA1D2-A761-4DF7-B68F-C45D351EA1ED}
+		{78EE2BEA-B2A8-4230-9D96-1C6A99D26BCC} = {E19353BF-CDC4-4772-BABF-6F96F799770D}
+		{F5A0FA80-1D1F-42D9-B949-DD33915D7A85} = {78EE2BEA-B2A8-4230-9D96-1C6A99D26BCC}
+		{FC16AA50-12D1-407C-A0A7-642CE8DF05EA} = {E19353BF-CDC4-4772-BABF-6F96F799770D}
+		{C4F9ADFD-9987-4ACB-A4EB-A9BD598F7985} = {FC16AA50-12D1-407C-A0A7-642CE8DF05EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {A52F1265-A57D-40F6-955B-DA8A77B9641C}
+	EndGlobalSection
+EndGlobal
