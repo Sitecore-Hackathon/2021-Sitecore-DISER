@@ -37,8 +37,7 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
                 SearchText = "Generate Report",
                 SearchLink = "", // Url of API    
                 StartDateLabel = item["Start Date Label"],
-                EndDateLabel = item["End Date Label"]
-                SearchLink = "", // Url of API      
+                EndDateLabel = item["End Date Label"],               
                 Tabs = GetTabs()
             };
             return model;
