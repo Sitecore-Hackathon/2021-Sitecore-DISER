@@ -7,7 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http;
 
-namespace SitecoreDiser.Feature.ContentReport.Api.Controllers
+namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
 {
     public class DownloadApiController
     {
