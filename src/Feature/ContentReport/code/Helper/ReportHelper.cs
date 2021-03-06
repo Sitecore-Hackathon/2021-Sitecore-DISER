@@ -19,24 +19,26 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
             {
                 var reportTabItemModel = new ReportTabItemModel();
 
-                var homePath = ItemExtensions.GetItemPathById(Constants.HomeGuid);
+                var homePath = ItemExtensions.GetItemPathById(Settings.GetSetting("HomeItemId"));
 
                 var approvedItems = updatedItems.Where(x => (x.FullPath.StartsWith(homePath, StringComparison.OrdinalIgnoreCase))
-                                                        && x.WorkflowState == Constants.WorkflowApprovedStateId).ToList();
+                                                        && x.WorkflowState == Settings.GetSetting("WorkflowItemId")).ToList();
 
                 if (requestModel.Type == "CreatedItem")
                 {
                     var createdApprovedItems = approvedItems.Where(x => x.ItemVersion == 1).ToList();
                     reportTabItemModel.Results = GetPageItems(createdApprovedItems, true);
+                    reportTabItemModel.CreatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
                 }
 
-                if (requestModel.Type == "UpdatedItem")
+                else if (requestModel.Type == "UpdatedItem")
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
                     reportTabItemModel.Results = GetPageItems(updatedApprovedItems, false, reportTabItemModel.Results);
+                    reportTabItemModel.UpdatedPages = reportTabItemModel.Results.Any() ? reportTabItemModel.Results.Count : 0;
                 }
 
-                if (requestModel.Type == "ArchivedItems")
+                else if (requestModel.Type == "ArchivedItems")
                 {
                     // get the archive database for the master database
                     var master = Factory.GetDatabase(Constants.Database);
@@ -52,6 +54,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                                         ).ToList();
 
                     reportTabItemModel.ArchivedItems = archivedItems;
+                    reportTabItemModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
                 }
                 return reportTabItemModel;
             }
