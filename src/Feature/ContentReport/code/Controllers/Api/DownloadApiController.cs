@@ -40,17 +40,26 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
             if (type == "ArchivedItems")
             {
                 csv.AppendLine("Archive Item Id,Archive Item Name,Archive By,Archive Date");
-                if (tabItemModel == null || tabItemModel.Results == null || tabItemModel.Results.Count <= 0) return csv;
+                if (tabItemModel == null || tabItemModel.ArchivedItems == null || tabItemModel.ArchivedItems.Count <= 0) return csv;
                 foreach (var result in tabItemModel.ArchivedItems)
                 {
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ArchivalId, result.ArchiveName, result.ArchivedBy, result.ArchiveLocalDate));
                 }
             }
-            else
+            if (type == "CreatedItem")
             {
                 csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
-                if (tabItemModel == null || tabItemModel.Results == null || tabItemModel.Results.Count <= 0) return csv;
-                foreach (var result in tabItemModel.Results)
+                if (tabItemModel == null || tabItemModel.CreatedResults == null || tabItemModel.CreatedResults.Count <= 0) return csv;
+                foreach (var result in tabItemModel.CreatedResults)
+                {
+                    csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
+                }
+            }
+            if (type == "UpdatedItem")
+            {
+                csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
+                if (tabItemModel == null || tabItemModel.CreatedResults == null || tabItemModel.CreatedResults.Count <= 0) return csv;
+                foreach (var result in tabItemModel.CreatedResults)
                 {
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
                 }

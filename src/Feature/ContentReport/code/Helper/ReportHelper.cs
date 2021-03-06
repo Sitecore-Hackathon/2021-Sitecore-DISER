@@ -27,17 +27,15 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                 if (reportModel.Type == "CreatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var createdApprovedItems = approvedItems.Where(x => x.ItemVersion == 1).ToList();
-                    if (!string.IsNullOrEmpty(reportModel.Type))
-                        reportDataModel.Results = GetPageItems(createdApprovedItems, true);
-                    reportDataModel.CreatedPages = reportDataModel.Results.Any() ? reportDataModel.Results.Count : 0;
+                    reportDataModel.CreatedResults = GetPageItems(createdApprovedItems, true);
+                    reportDataModel.CreatedPages = reportDataModel.CreatedResults.Any() ? reportDataModel.CreatedResults.Count : 0;
                 }
 
                 if (reportModel.Type == "UpdatedItem" || string.IsNullOrEmpty(reportModel.Type))
                 {
                     var updatedApprovedItems = approvedItems.Where(x => x.ItemVersion > 1 || (x.ItemVersion == 1 && x.FullPath.ToLower().Contains(_localFolder))).ToList();
-                    if (!string.IsNullOrEmpty(reportModel.Type))
-                        reportDataModel.Results = GetPageItems(updatedApprovedItems, false, reportDataModel.Results);
-                    reportDataModel.UpdatedPages = reportDataModel.Results.Any() ? reportDataModel.Results.Count : 0;
+                    reportDataModel.UpdatedResults = GetPageItems(updatedApprovedItems, false, reportDataModel.CreatedResults);
+                    reportDataModel.UpdatedPages = reportDataModel.UpdatedResults.Any() ? reportDataModel.UpdatedResults.Count : 0;
                 }
 
                 if (reportModel.Type == "ArchivedItems" || string.IsNullOrEmpty(reportModel.Type))
@@ -54,6 +52,7 @@ namespace SitecoreDiser.Feature.ContentReport.Helper
                                             entry.ArchiveDate <= reportModel.EndDateTime &&
                                             (entry.OriginalLocation.StartsWith(homePath))
                                         ).ToList();
+
                     reportDataModel.ArchivedItems = archivedItems;
                     reportDataModel.ArchivedPages = archivedItems.Any() ? archivedItems.Count : 0;
                 }
