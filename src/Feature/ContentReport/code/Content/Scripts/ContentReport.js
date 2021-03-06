@@ -12,10 +12,11 @@
 
     // Tab Data tables    
     $('#dt-tab-*').DataTable({
+        //data: data,
         "paging": true,
         "ordering": true,
         "pagingType": "full_numbers"
     });
-    //$('.dataTables_length').addClass('bs-select');
+    
 
 });
