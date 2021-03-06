@@ -12,5 +12,9 @@ namespace SitecoreDiser.Feature.ContentReport.Models
         public string StartDateLabel { get; set; }
         public string EndDateLabel { get; set; }
 
+        public string SearchLink { get; set; }
+        
+        public List<ReportTabItemModel> Tabs { get; set; }
+
     }
 }
