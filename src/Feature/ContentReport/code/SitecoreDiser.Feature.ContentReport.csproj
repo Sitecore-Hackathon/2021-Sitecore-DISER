@@ -267,7 +267,6 @@
       <HintPath>..\..\..\..\packages\Sitecore.Marketing.xMgmt.ReferenceData.10.1.0\lib\net48\Sitecore.Marketing.xMgmt.ReferenceData.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Mvc, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-    <Reference Include="Sitecore.Mvc">
       <HintPath>..\..\..\..\packages\Sitecore.Mvc.10.1.0\lib\net48\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Nexus.Consumption, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9de34fe2109de40c, processorArchitecture=MSIL">
@@ -462,13 +461,11 @@
     <Content Include="Content\Css\ContentReport.css" />
     <Content Include="Content\Scripts\ContentReport.js" />
     <Content Include="App_Config\Include\Feature\ContentReport\Search.Setting.config" />
-    <None Include="Properties\PublishProfiles\Feature ContentReport.pubxml" />
     <Content Include="Content\Scripts\filesaver.js" />
     <Content Include="Views\ContentReport\ContentReport.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="Controllers\Api\DownloadApiController.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\Api\ReportApiController.cs" />
