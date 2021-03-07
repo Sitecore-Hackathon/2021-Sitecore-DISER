@@ -22,9 +22,9 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         /// <returns>Content report model</returns>
         public ReportContentModel GetContentReport()
         {
-           var model = new ReportContentModel
+            var model = new ReportContentModel
             {
-                SearchText = "Generate Report",
+                SearchText = Constants.SearchText,
                 SearchLink = "", // Url of API    
                 Tabs = GetTabs()
             };
@@ -40,7 +40,7 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         {
             List<ReportSearchResultItemModel> updatedItems = null;
             if (request != null && request.Type != "ArchivedItems")
-                    updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
+                updatedItems = _searchService.GetResults(IndexHelper.UpdatedReportPredicates(request.StartDateTime.Value, request.EndDateTime.Value), request.Page);
             return ReportHelper.GetReport(updatedItems, request);
         }
 
@@ -52,10 +52,10 @@ namespace SitecoreDiser.Feature.ContentReport.Repositories
         {
             var tabs = new List<ReportTabItemModel>
             {
-                new ReportTabItemModel() { DownloadText = "", DownloadLink = "", Name = "Summary", Type = "Summary" },
-                new ReportTabItemModel() { DownloadText = "Download Create Items Report", DownloadLink = "", Name = "Created Items", Type = "CreatedItems" },
-                new ReportTabItemModel() { DownloadText = "Download Updated Items Report", DownloadLink = "", Name = "Updated Items", Type = "UpdatedItems" },
-                new ReportTabItemModel() { DownloadText = "Download Archive Items Report", DownloadLink = "", Name = "Archived Items", Type = "ArchivedItems" }
+                new ReportTabItemModel() { DownloadText = "", DownloadLink = "", Name = Constants.Summary, Type = Constants.Summary },
+                new ReportTabItemModel() { DownloadText = Constants.DownloadCreatedReports, DownloadLink = "", Name = Constants.CreatedItemText, Type = Constants.CreatedType },
+                new ReportTabItemModel() { DownloadText = Constants.DownloadUpdatedReports, DownloadLink = "", Name = Constants.UpdatedItemText, Type = Constants.UpdatedType },
+                new ReportTabItemModel() { DownloadText = Constants.DownloadArchivedReports, DownloadLink = "", Name = Constants.ArchivedItemText, Type = Constants.ArchivedType }
             };
             return tabs;
         }

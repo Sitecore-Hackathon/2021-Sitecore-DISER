@@ -5,7 +5,19 @@
        
         public const string Database = "master";
         public const string Archive = "archive";
-       
+        public const string SearchText = "Generate Report";
+        public const string Summary = "Summary";
+        public const string DownloadCreatedReports = "Download Create Items Report";
+        public const string DownloadUpdatedReports = "Download Updated Items Report";
+        public const string DownloadArchivedReports = "Download Archive Items Report";
+        public const string CreatedType = "CreatedItems";
+        public const string UpdatedType = "UpdatedItems";
+        public const string ArchivedType = "ArchivedItems";
+        public const string CreatedItemText = "Created Items";
+        public const string UpdatedItemText = "Updated Items";
+        public const string ArchivedItemText = "Archived Items";
+
+
         public struct Fields
         {
 

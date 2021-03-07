@@ -55,7 +55,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
         private StringBuilder GenerateCsv(ReportDataModel reportDatamodel, string type)
         {
             var csv = new StringBuilder();
-            if (type == "ArchivedItems")
+            if (type == Constants.ArchivedType)
             {
                 csv.AppendLine("Archive Item Id,Archive Item Name,Archive By,Archive Date, Original Path");
                 if (reportDatamodel == null || reportDatamodel.ArchivedItems == null || reportDatamodel.ArchivedItems.Count <= 0) return csv;
@@ -64,7 +64,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4}", result.ItemId, result.ItemName, result.UpdatedBy, result.UpdatedDate, result.FullPath));
                 }
             }
-            if (type == "CreatedItems")
+            if (type == Constants.CreatedType)
             {
                 csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
                 if (reportDatamodel == null || reportDatamodel.CreatedResults == null || reportDatamodel.CreatedResults.Count <= 0) return csv;
@@ -73,7 +73,7 @@ namespace SitecoreDiser.Feature.ContentReport.Controllers.Api
                     csv.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", result.ItemId, result.FullPath, result.FullPath, result.UpdatedBy, result.Language, result.Version));
                 }
             }
-            if (type == "UpdatedItems")
+            if (type == Constants.UpdatedType)
             {
                 csv.AppendLine("Item Id,Item Name,Item Path,Created/Updated User,Language,Version");
                 if (reportDatamodel == null || reportDatamodel.UpdatedResults == null || reportDatamodel.UpdatedResults.Count <= 0) return csv;
