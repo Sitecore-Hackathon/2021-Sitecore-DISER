@@ -17,7 +17,7 @@ You can find a very good reference to Github flavoured markdown reference in [th
 ## Description
 ⟹ Document uploaded to "Submission" Folder
 - SitecoreDISER-Content-Report-Module.docx
-_You can alternately paste a [link here](#docs) to a document within this repo containing the description._
+
 
 ## Video link
 ⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository. _Just remember to update the link below_
@@ -31,7 +31,8 @@ _You can alternately paste a [link here](#docs) to a document within this repo c
 ⟹ Does your module rely on other Sitecore modules or frameworks?
 
 - List any dependencies
-- Sitecore Search
+- Sitecore 10.1
+- Sitecore Search Solr
 
 ## Installation instructions
 ⟹ Write a short clear step-wise instruction on how to install your module.  
