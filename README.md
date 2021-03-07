@@ -25,7 +25,7 @@ You can find a very good reference to Github flavoured markdown reference in [th
 ## Video link
 ⟹ Provide a video highlighing your Hackathon module submission and provide a link to the video. You can use any video hosting, file share or even upload the video to this repository.
 
-⟹ [Video link](#https://youtu.be/Wojc_PU0upU)
+⟹ [Video link](https://youtu.be/Wojc_PU0upU)
 
 
 
@@ -55,7 +55,7 @@ Configuration setting values need to be updated as required below,
 ## Usage instructions
 ⟹ Provide documentation about your module, how do the users use your module, where are things located, what do the icons mean, are there any secret shortcuts etc.
 
-Usage instruction can be found [here](#https://github.com/Sitecore-Hackathon/2021-Sitecore-DISER/blob/main/Submission/SitecoreDISER-Content-Report-Module.docx)
+Usage instruction can be found [here](https://github.com/Sitecore-Hackathon/2021-Sitecore-DISER/blob/main/Submission/SitecoreDISER-Content-Report-Module.docx)
 
 ## Comments
 If you'd like to make additional comments that is important for your module entry.
