@@ -20,6 +20,7 @@ You can find a very good reference to Github flavoured markdown reference in [th
 ⟹ Document uploaded to "Submission" Folder
 - SitecoreDISER-Content-Report-Module.docx
 - SitecoreDISER-ContentReportModule-1.0.0.zip (Sitecore installation package)
+- ContentReport-TestContent-1.0.0.zip (Optional installation package to create content pages for testing)
 
 
 ## Video link
@@ -40,7 +41,9 @@ You can find a very good reference to Github flavoured markdown reference in [th
 ## Installation instructions
 ⟹ Write a short clear step-wise instruction on how to install your module.  
 
-1. Use the Sitecore Installation wizard to install the [package](#https://github.com/Sitecore-Hackathon/2021-Sitecore-DISER/blob/main/Submission/SitecoreDISER-ContentReportModule-1.0.0.zip)
+1. Use the Sitecore Installation wizard to install the [package](https://github.com/Sitecore-Hackathon/2021-Sitecore-DISER/blob/main/Submission/SitecoreDISER-ContentReportModule-1.0.0.zip)
+2. **Optional:** Use the Sitecore Installation wizard to install the [content package](https://github.com/Sitecore-Hackathon/2021-Sitecore-DISER/blob/main/Submission/ContentReport-TestContent-1.0.0.zip). This is not needed if site already got pages created.
+3. Rebuild Solr indexes
 
 
 ### Configuration
